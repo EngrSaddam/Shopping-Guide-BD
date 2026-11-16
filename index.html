@@ -324,6 +324,17 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;bor
   .agb{gap:14px}
   .again .pill,.again .share{height:54px;font-size:16px}
 }
+
+/* v9 equal columns */
+@media (min-width:900px){
+  .g2{align-items:stretch}
+  .g2>div{display:flex;flex-direction:column}
+  .flags{flex:1;grid-template-rows:1fr}
+  .flag{display:flex;flex-direction:column;padding:16px 18px}
+  .flag ul{flex:1;align-content:space-evenly;gap:8px}
+  .know{flex:1;grid-auto-rows:1fr;gap:12px}
+  .know li{display:flex;align-items:center;padding:12px 18px}
+}
 </style>
 </head>
 <body>
