@@ -287,6 +287,35 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;bor
   .store{padding:18px 16px 16px}
   .soc{padding:26px 12px}
 }
+
+/* v7 desktop redesign */
+.navcta{display:none}
+@media (min-width:900px){
+  .bar{display:block}
+  .barin{max-width:1176px;width:100%}
+  .nav{margin:0 0 0 auto}
+  .navcta{display:inline-flex;align-items:center;margin:0 14px 0 8px;background:var(--coral);color:#fff;border-radius:999px;padding:8px 20px;font:800 15px "Baloo Da 2",sans-serif;transition:transform .15s}
+  .navcta:hover{transform:translateY(-2px)}
+  :root[data-theme="dark"] .navcta{color:#1a0c04}
+  .wrap{max-width:1240px}
+  .top{padding:44px 0 12px;gap:56px}
+  .hero h1{font-size:84px}
+  #steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .acc{margin:0;display:flex;flex-direction:column}
+  .acc summary{pointer-events:none;cursor:default;padding:18px 18px 6px;min-height:0}
+  .acc summary::after{display:none}
+  .acc summary{font-size:17px}
+  .acc p{padding:0 18px 18px 54px;font-size:15px}
+  .g2{gap:32px;align-items:stretch;margin-top:8px}
+  .g2>div>h2:first-child{margin-top:56px}
+  .know{height:auto}
+  .trust{background:none;border:0;box-shadow:none;padding:0;max-width:none}
+  .trust ul{list-style:none;padding:0;grid-template-columns:repeat(3,1fr);gap:16px;color:var(--ink)}
+  .trust li{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--coral);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);font-size:15px}
+  .again{margin-top:56px}
+  footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+}
+@media (min-width:1500px){.wrap{max-width:1320px}.barin{max-width:1256px}}
 </style>
 </head>
 <body>
@@ -298,6 +327,7 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;bor
       <a href="#coupons" id="navC" data-t="nvC" hidden>Coupons</a>
       <a href="#community" data-t="nvJ">Community</a>
     </nav>
+    <a class="navcta" href="#community" data-t="join">Join now</a>
     <div class="ctl">
       <button class="pill" id="lang" aria-label="Language">বাং</button>
       <button class="pill" id="theme" aria-label="Switch light or dark mode">🌙</button>
@@ -327,12 +357,10 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;bor
   <div class="mini tipbar"><small data-t="tipL">Tip of the day</small><p id="tip"></p></div>
 
   <section id="guide">
+    <h2 data-t="gH">Smart shopping in 6 steps</h2>
+    <p class="sub" data-t="gS">Follow this checklist for every online order. It takes two minutes and can save you money and trouble.</p>
+    <div id="steps"></div>
     <div class="g2">
-      <div>
-        <h2 data-t="gH">Smart shopping in 6 steps</h2>
-        <p class="sub" data-t="gS">Follow this checklist for every online order. It takes two minutes and can save you money and trouble.</p>
-        <div id="steps"></div>
-      </div>
       <div>
         <h2 data-t="rfH">Real deal or fake discount?</h2>
         <p class="sub" data-t="rfS">Quick signs to check before you pay.</p>
@@ -340,7 +368,10 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;bor
           <div class="flag good"><h3 data-t="gdH">Good signs</h3><ul id="good"></ul></div>
           <div class="flag bad"><h3 data-t="bdH">Red flags</h3><ul id="bad"></ul></div>
         </div>
+      </div>
+      <div>
         <h2 data-t="safeH">Stay safe from scams</h2>
+        <p class="sub" data-t="safeS">Simple habits that protect your money and accounts.</p>
         <ul class="know" id="know"></ul>
       </div>
     </div>
@@ -477,8 +508,8 @@ var KNOW=[
 ];
 /* ===================== */
 var T={
-en:{nvG:"Guide",nvS:"Stores",nvC:"Coupons",nvJ:"Community",cpH:"Coupons & vouchers",cpS:"Copy a code and apply it at checkout. Check the shop’s terms before you pay.",cpCopy:"Copy",cpCopied:"Code copied",cpShop:"Shop now",cpExp:"Expires",cpExpired:"Expired",recH:"Recommended stores",h1a:"Shop Smart.",h1b:"Save More.",lead:"Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.",ends:"Today’s picks refresh in",joinH:"Join the community",joinS:"Join one channel and get every new deal first. Flash sales end in hours.",t1:"Daraz Offers & Deals",t1d:"Daraz deals, flash sales and vouchers on Telegram.",t2:"Shopping Guide BD channel",t2d:"Deals, tips and reviews from Shopping Guide BD.",t3:"Facebook page",t3d:"Follow for posts, giveaways and shopping updates.",t4:"YouTube channel",t4d:"Product reviews and how-to shopping videos.",t5:"Our blog",t6:"WhatsApp channel",t6d:"Quick deal alerts straight to your phone.",t5d:"Full buying guides and the latest offers in one place.",join:"Join now",follow:"Follow",watch:"Watch",visit:"Visit site",trH:"Trending deals",trS:"Hand-picked deals from top online shops.",share:"Share with friends",disc:"We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.",buy:"View deal",off:"off",toastTag:"New deals every day!",copied:"Link copied",lang:"বাং",brandsub:"Online shopping guide",t7:"Telegram group",t7d:"Ask questions and share deals with other shoppers.",t8:"Facebook group",t8d:"Join the group to ask, share and discuss with other buyers.",rfH:"Real deal or fake discount?",rfS:"Quick signs to check before you pay.",gdH:"Good signs",bdH:"Red flags",safeH:"Stay safe from scams",saleP:"11.11 sale pages and dates",bdChip:"🇧🇩 Made for Bangladeshi shoppers",tipL:"Tip of the day",nextL:"Upcoming sales",saleNote:"Typical dates. Confirm in the shop’s app.",agH:"New deals every day. Come back daily.",agS:"Bookmark this page and join a channel so you never miss a flash sale.",addHome:"Add to home screen",homeHow:"Open your browser menu and tap “Add to Home screen”.",seeGuide:"Smart shopping checklist ↓",gH:"Smart shopping in 6 steps",gS:"Follow this checklist for every online order. It takes two minutes and can save you money and trouble.",clH:"Daraz 11.11 campaign pages",calH:"Sale timeline",stepH:"How to grab deals, step by step",knowH:"Good to know",wH:"About this guide",w1:"Shopping Guide BD is an independent guide. We don’t sell anything.",w2:"We update this page when a new sale or campaign starts.",w3:"Prices, stock and offers change fast. Check the final price and terms in the shop’s app before you pay.",sLive:"is live",sOpen:"See offers",stH:"Where to shop in Bangladesh",stS:"Compare before you buy. Tap a store to see current deals.",shop:"Shop deals",live:"Live now",endsIn:"Ends in",campBtn:"See the 11.11 sale",fbT:"Daily deals on Telegram",fbS:"Join the channel to get new offers and vouchers first.",fbB:"Join on Telegram",dd:"days",hh:"hrs",mm:"min",ss:"sec"},
-bn:{nvG:"গাইড",nvS:"স্টোর",nvC:"কুপন",nvJ:"কমিউনিটি",cpH:"কুপন ও ভাউচার",cpS:"কোড কপি করে চেকআউটে ব্যবহার করুন। পেমেন্টের আগে শপের শর্ত দেখে নিন।",cpCopy:"কপি",cpCopied:"কোড কপি হয়েছে",cpShop:"কিনুন",cpExp:"মেয়াদ",cpExpired:"মেয়াদ শেষ",recH:"সুপারিশকৃত স্টোর",h1a:"স্মার্ট শপিং।",h1b:"বেশি সাশ্রয়।",lead:"বাংলাদেশে অনলাইনে কেনাকাটার ফ্রি গাইড: আসল ডিল চিনুন, শপ তুলনা করুন, নিরাপদে পেমেন্ট করুন, প্রতারণা এড়ান।",ends:"আজকের পিক বদলাতে বাকি",joinH:"কমিউনিটিতে যোগ দিন",joinS:"যেকোনো একটি চ্যানেলে যোগ দিন, নতুন ডিল সবার আগে পান। ফ্ল্যাশ সেল কয়েক ঘণ্টায় শেষ হয়।",t1:"দারাজ অফার ও ডিলস",t1d:"টেলিগ্রামে দারাজের ডিল, ফ্ল্যাশ সেল ও ভাউচার।",t2:"শপিং গাইড বিডি চ্যানেল",t2d:"শপিং গাইড বিডি-র ডিল, টিপস ও রিভিউ।",t3:"ফেসবুক পেজ",t3d:"পোস্ট, গিভঅ্যাওয়ে ও শপিং আপডেটের জন্য ফলো করুন।",t4:"ইউটিউব চ্যানেল",t4d:"প্রোডাক্ট রিভিউ ও শপিং টিউটোরিয়াল ভিডিও।",t5:"আমাদের ব্লগ",t6:"হোয়াটসঅ্যাপ চ্যানেল",t6d:"সরাসরি ফোনে দ্রুত ডিল অ্যালার্ট।",t5d:"কেনাকাটার পূর্ণ গাইড ও সর্বশেষ অফার এক জায়গায়।",join:"যোগ দিন",follow:"ফলো করুন",watch:"দেখুন",visit:"সাইটে যান",trH:"ট্রেন্ডিং ডিল",trS:"দেশের সেরা অনলাইন শপ থেকে বাছাই করা ডিল।",share:"বন্ধুদের সাথে শেয়ার করুন",disc:"আমরা একটি শপিং গাইড, দোকান নই। আমরা অনলাইন শপের লিংক দিই এবং এতে আপনার বাড়তি খরচ ছাড়াই সামান্য কমিশন পেতে পারি।",buy:"ডিল দেখুন",off:"ছাড়",toastTag:"প্রতিদিন নতুন ডিল!",copied:"লিংক কপি হয়েছে",lang:"EN",brandsub:"অনলাইন শপিং গাইড",t7:"টেলিগ্রাম গ্রুপ",t7d:"প্রশ্ন করুন ও অন্য ক্রেতাদের সাথে ডিল শেয়ার করুন।",t8:"ফেসবুক গ্রুপ",t8d:"প্রশ্ন, শেয়ার ও আলোচনার জন্য গ্রুপে যোগ দিন।",rfH:"আসল ডিল নাকি নকল ছাড়?",rfS:"পেমেন্টের আগে দ্রুত দেখে নিন।",gdH:"ভালো লক্ষণ",bdH:"সতর্ক সংকেত",safeH:"প্রতারণা থেকে সাবধান",saleP:"১১.১১ সেলের পেজ ও তারিখ",bdChip:"🇧🇩 বাংলাদেশি ক্রেতাদের জন্য",tipL:"আজকের টিপ",nextL:"আসন্ন সেল",saleNote:"সম্ভাব্য তারিখ। শপের অ্যাপে নিশ্চিত হয়ে নিন।",agH:"রোজ নতুন ডিল। রোজ একবার ঘুরে যান।",agS:"এই পাতা বুকমার্ক করুন এবং চ্যানেলে যোগ দিন, কোনো ফ্ল্যাশ সেল মিস করবেন না।",addHome:"হোম স্ক্রিনে যোগ করুন",homeHow:"ব্রাউজারের মেনু খুলে “Add to Home screen” চাপুন।",seeGuide:"স্মার্ট কেনাকাটার চেকলিস্ট ↓",gH:"স্মার্ট কেনাকাটার ৬ ধাপ",gS:"প্রতিটি অনলাইন অর্ডারে এই চেকলিস্ট মেনে চলুন। দুই মিনিট লাগে, টাকা ও ঝামেলা দুটোই বাঁচে।",clH:"দারাজ ১১.১১ ক্যাম্পেইন পেজ",calH:"সেলের সময়সূচি",stepH:"ধাপে ধাপে ডিল ধরার নিয়ম",knowH:"জেনে রাখুন",wH:"এই গাইড সম্পর্কে",w1:"শপিং গাইড বিডি একটি স্বাধীন গাইড। আমরা কিছু বিক্রি করি না।",w2:"নতুন সেল বা ক্যাম্পেইন শুরু হলে আমরা এই পাতা আপডেট করি।",w3:"দাম, স্টক ও অফার দ্রুত বদলায়। পেমেন্টের আগে শপের অ্যাপে চূড়ান্ত দাম ও শর্ত দেখে নিন।",sLive:"চলছে",sOpen:"ডিল দেখুন",stH:"বাংলাদেশে কোথায় কিনবেন",stS:"কেনার আগে তুলনা করুন। স্টোরে ট্যাপ করে চলমান ডিল দেখুন।",shop:"ডিল দেখুন",live:"এখন চলছে",endsIn:"শেষ হতে বাকি",campBtn:"১১.১১ সেল দেখুন",fbT:"প্রতিদিনের ডিল টেলিগ্রামে",fbS:"নতুন অফার ও ভাউচার সবার আগে পেতে চ্যানেলে যোগ দিন।",fbB:"টেলিগ্রামে যোগ দিন",dd:"দিন",hh:"ঘণ্টা",mm:"মিনিট",ss:"সেকেন্ড"}
+en:{safeS:"Simple habits that protect your money and accounts.",nvG:"Guide",nvS:"Stores",nvC:"Coupons",nvJ:"Community",cpH:"Coupons & vouchers",cpS:"Copy a code and apply it at checkout. Check the shop’s terms before you pay.",cpCopy:"Copy",cpCopied:"Code copied",cpShop:"Shop now",cpExp:"Expires",cpExpired:"Expired",recH:"Recommended stores",h1a:"Shop Smart.",h1b:"Save More.",lead:"Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.",ends:"Today’s picks refresh in",joinH:"Join the community",joinS:"Join one channel and get every new deal first. Flash sales end in hours.",t1:"Daraz Offers & Deals",t1d:"Daraz deals, flash sales and vouchers on Telegram.",t2:"Shopping Guide BD channel",t2d:"Deals, tips and reviews from Shopping Guide BD.",t3:"Facebook page",t3d:"Follow for posts, giveaways and shopping updates.",t4:"YouTube channel",t4d:"Product reviews and how-to shopping videos.",t5:"Our blog",t6:"WhatsApp channel",t6d:"Quick deal alerts straight to your phone.",t5d:"Full buying guides and the latest offers in one place.",join:"Join now",follow:"Follow",watch:"Watch",visit:"Visit site",trH:"Trending deals",trS:"Hand-picked deals from top online shops.",share:"Share with friends",disc:"We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.",buy:"View deal",off:"off",toastTag:"New deals every day!",copied:"Link copied",lang:"বাং",brandsub:"Online shopping guide",t7:"Telegram group",t7d:"Ask questions and share deals with other shoppers.",t8:"Facebook group",t8d:"Join the group to ask, share and discuss with other buyers.",rfH:"Real deal or fake discount?",rfS:"Quick signs to check before you pay.",gdH:"Good signs",bdH:"Red flags",safeH:"Stay safe from scams",saleP:"11.11 sale pages and dates",bdChip:"🇧🇩 Made for Bangladeshi shoppers",tipL:"Tip of the day",nextL:"Upcoming sales",saleNote:"Typical dates. Confirm in the shop’s app.",agH:"New deals every day. Come back daily.",agS:"Bookmark this page and join a channel so you never miss a flash sale.",addHome:"Add to home screen",homeHow:"Open your browser menu and tap “Add to Home screen”.",seeGuide:"Smart shopping checklist ↓",gH:"Smart shopping in 6 steps",gS:"Follow this checklist for every online order. It takes two minutes and can save you money and trouble.",clH:"Daraz 11.11 campaign pages",calH:"Sale timeline",stepH:"How to grab deals, step by step",knowH:"Good to know",wH:"About this guide",w1:"Shopping Guide BD is an independent guide. We don’t sell anything.",w2:"We update this page when a new sale or campaign starts.",w3:"Prices, stock and offers change fast. Check the final price and terms in the shop’s app before you pay.",sLive:"is live",sOpen:"See offers",stH:"Where to shop in Bangladesh",stS:"Compare before you buy. Tap a store to see current deals.",shop:"Shop deals",live:"Live now",endsIn:"Ends in",campBtn:"See the 11.11 sale",fbT:"Daily deals on Telegram",fbS:"Join the channel to get new offers and vouchers first.",fbB:"Join on Telegram",dd:"days",hh:"hrs",mm:"min",ss:"sec"},
+bn:{safeS:"সহজ কিছু অভ্যাস আপনার টাকা ও অ্যাকাউন্ট নিরাপদ রাখে।",nvG:"গাইড",nvS:"স্টোর",nvC:"কুপন",nvJ:"কমিউনিটি",cpH:"কুপন ও ভাউচার",cpS:"কোড কপি করে চেকআউটে ব্যবহার করুন। পেমেন্টের আগে শপের শর্ত দেখে নিন।",cpCopy:"কপি",cpCopied:"কোড কপি হয়েছে",cpShop:"কিনুন",cpExp:"মেয়াদ",cpExpired:"মেয়াদ শেষ",recH:"সুপারিশকৃত স্টোর",h1a:"স্মার্ট শপিং।",h1b:"বেশি সাশ্রয়।",lead:"বাংলাদেশে অনলাইনে কেনাকাটার ফ্রি গাইড: আসল ডিল চিনুন, শপ তুলনা করুন, নিরাপদে পেমেন্ট করুন, প্রতারণা এড়ান।",ends:"আজকের পিক বদলাতে বাকি",joinH:"কমিউনিটিতে যোগ দিন",joinS:"যেকোনো একটি চ্যানেলে যোগ দিন, নতুন ডিল সবার আগে পান। ফ্ল্যাশ সেল কয়েক ঘণ্টায় শেষ হয়।",t1:"দারাজ অফার ও ডিলস",t1d:"টেলিগ্রামে দারাজের ডিল, ফ্ল্যাশ সেল ও ভাউচার।",t2:"শপিং গাইড বিডি চ্যানেল",t2d:"শপিং গাইড বিডি-র ডিল, টিপস ও রিভিউ।",t3:"ফেসবুক পেজ",t3d:"পোস্ট, গিভঅ্যাওয়ে ও শপিং আপডেটের জন্য ফলো করুন।",t4:"ইউটিউব চ্যানেল",t4d:"প্রোডাক্ট রিভিউ ও শপিং টিউটোরিয়াল ভিডিও।",t5:"আমাদের ব্লগ",t6:"হোয়াটসঅ্যাপ চ্যানেল",t6d:"সরাসরি ফোনে দ্রুত ডিল অ্যালার্ট।",t5d:"কেনাকাটার পূর্ণ গাইড ও সর্বশেষ অফার এক জায়গায়।",join:"যোগ দিন",follow:"ফলো করুন",watch:"দেখুন",visit:"সাইটে যান",trH:"ট্রেন্ডিং ডিল",trS:"দেশের সেরা অনলাইন শপ থেকে বাছাই করা ডিল।",share:"বন্ধুদের সাথে শেয়ার করুন",disc:"আমরা একটি শপিং গাইড, দোকান নই। আমরা অনলাইন শপের লিংক দিই এবং এতে আপনার বাড়তি খরচ ছাড়াই সামান্য কমিশন পেতে পারি।",buy:"ডিল দেখুন",off:"ছাড়",toastTag:"প্রতিদিন নতুন ডিল!",copied:"লিংক কপি হয়েছে",lang:"EN",brandsub:"অনলাইন শপিং গাইড",t7:"টেলিগ্রাম গ্রুপ",t7d:"প্রশ্ন করুন ও অন্য ক্রেতাদের সাথে ডিল শেয়ার করুন।",t8:"ফেসবুক গ্রুপ",t8d:"প্রশ্ন, শেয়ার ও আলোচনার জন্য গ্রুপে যোগ দিন।",rfH:"আসল ডিল নাকি নকল ছাড়?",rfS:"পেমেন্টের আগে দ্রুত দেখে নিন।",gdH:"ভালো লক্ষণ",bdH:"সতর্ক সংকেত",safeH:"প্রতারণা থেকে সাবধান",saleP:"১১.১১ সেলের পেজ ও তারিখ",bdChip:"🇧🇩 বাংলাদেশি ক্রেতাদের জন্য",tipL:"আজকের টিপ",nextL:"আসন্ন সেল",saleNote:"সম্ভাব্য তারিখ। শপের অ্যাপে নিশ্চিত হয়ে নিন।",agH:"রোজ নতুন ডিল। রোজ একবার ঘুরে যান।",agS:"এই পাতা বুকমার্ক করুন এবং চ্যানেলে যোগ দিন, কোনো ফ্ল্যাশ সেল মিস করবেন না।",addHome:"হোম স্ক্রিনে যোগ করুন",homeHow:"ব্রাউজারের মেনু খুলে “Add to Home screen” চাপুন।",seeGuide:"স্মার্ট কেনাকাটার চেকলিস্ট ↓",gH:"স্মার্ট কেনাকাটার ৬ ধাপ",gS:"প্রতিটি অনলাইন অর্ডারে এই চেকলিস্ট মেনে চলুন। দুই মিনিট লাগে, টাকা ও ঝামেলা দুটোই বাঁচে।",clH:"দারাজ ১১.১১ ক্যাম্পেইন পেজ",calH:"সেলের সময়সূচি",stepH:"ধাপে ধাপে ডিল ধরার নিয়ম",knowH:"জেনে রাখুন",wH:"এই গাইড সম্পর্কে",w1:"শপিং গাইড বিডি একটি স্বাধীন গাইড। আমরা কিছু বিক্রি করি না।",w2:"নতুন সেল বা ক্যাম্পেইন শুরু হলে আমরা এই পাতা আপডেট করি।",w3:"দাম, স্টক ও অফার দ্রুত বদলায়। পেমেন্টের আগে শপের অ্যাপে চূড়ান্ত দাম ও শর্ত দেখে নিন।",sLive:"চলছে",sOpen:"ডিল দেখুন",stH:"বাংলাদেশে কোথায় কিনবেন",stS:"কেনার আগে তুলনা করুন। স্টোরে ট্যাপ করে চলমান ডিল দেখুন।",shop:"ডিল দেখুন",live:"এখন চলছে",endsIn:"শেষ হতে বাকি",campBtn:"১১.১১ সেল দেখুন",fbT:"প্রতিদিনের ডিল টেলিগ্রামে",fbS:"নতুন অফার ও ভাউচার সবার আগে পেতে চ্যানেলে যোগ দিন।",fbB:"টেলিগ্রামে যোগ দিন",dd:"দিন",hh:"ঘণ্টা",mm:"মিনিট",ss:"সেকেন্ড"}
 };
 var $=function(s){return document.querySelector(s)};
 var lang="en",root=document.documentElement;
@@ -512,6 +543,8 @@ function render(){
   renderGuide();renderMini();campaign();renderSocial();renderCoupons();renderRec();setRot(true);
 }
 
+var DESK=matchMedia("(min-width:900px)");
+if(DESK.addEventListener)DESK.addEventListener("change",function(){renderGuide()});
 function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 function renderSocial(){
   $("#soc").innerHTML=SOCIAL.map(function(x){
@@ -548,7 +581,7 @@ function nextRot(){
   setTimeout(function(){ri++;el.textContent=ROT[ri%ROT.length][lang];el.classList.remove("out")},350);
 }
 function renderGuide(){
-  $("#steps").innerHTML=STEPS.map(function(x,i){return'<details class="acc"'+(i===0?" open":"")+'><summary><em>'+num(i+1)+'</em>'+x.t[lang]+'</summary><p>'+x.d[lang]+'</p></details>'}).join("");
+  $("#steps").innerHTML=STEPS.map(function(x,i){return'<details class="acc"'+(i===0||DESK.matches?" open":"")+'><summary><em>'+num(i+1)+'</em>'+x.t[lang]+'</summary><p>'+x.d[lang]+'</p></details>'}).join("");
   $("#know").innerHTML=KNOW.map(function(x){return'<li>'+x[lang]+'</li>'}).join("");
   $("#good").innerHTML=GOOD.map(function(x){return'<li>'+x[lang]+'</li>'}).join("");
   $("#bad").innerHTML=BAD.map(function(x){return'<li>'+x[lang]+'</li>'}).join("");
