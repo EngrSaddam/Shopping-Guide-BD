@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shopping Guide BD – Online Shopping Guide</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" type="image/png" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<meta name="theme-color" content="#E8500A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF6E5;--card:#FFFFFF;--ink:#1B2A25;--mute:#5E6B66;--line:#E4D9C0;--green:#0E7C5A;--gold:#FFB627;--coral:#F0452A;--onGold:#1B2A25;--shadow:0 6px 0 rgba(27,42,37,.10)}
+:root[data-theme="dark"]{--bg:#0D1815;--card:#16251F;--ink:#F4EFE2;--mute:#9DB0A8;--line:#2A4036;--green:#2DD4A0;--gold:#FFC145;--coral:#FF6B4A;--shadow:0 6px 0 rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 16px/1.55 "Hind Siliguri",system-ui,sans-serif;background:var(--bg);color:var(--ink);padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);min-height:100vh;transition:background .3s,color .3s}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 1px 1px,var(--line) 1.2px,transparent 1.5px) 0 0/22px 22px;opacity:.7}
+h1,h2,h3,.btn{font-family:"Baloo Da 2","Hind Siliguri",sans-serif}
+.wrap{max-width:520px;margin:0 auto;padding:14px 16px 40px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:10px}
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.brand{font:800 18px "Baloo Da 2",sans-serif;display:flex;gap:8px;align-items:center}
+.brand span{display:flex;flex-direction:column;line-height:1.05}.brand small{font:500 12px "Hind Siliguri",sans-serif;color:var(--mute)}
+.brand i{width:38px;height:38px;border-radius:11px;background:#F4590C;display:grid;place-items:center;font-style:normal;flex:none}
+.ctl{display:flex;gap:8px}
+.pill{border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;min-width:44px;height:40px;padding:0 12px;font:600 14px "Hind Siliguri",sans-serif;cursor:pointer;display:grid;place-items:center;box-shadow:0 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.pill:active{transform:translateY(3px);box-shadow:none}
+/* hero */
+.hero{position:relative;padding:26px 6px 8px}
+.hero h1{font-size:clamp(40px,12vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.5px;max-width:9em}
+.hero h1 span{display:block;color:var(--green)}
+.hero p{color:var(--mute);margin-top:12px;max-width:30em}
+.tag{position:absolute;right:2px;top:2px;width:92px;border:0;background:none;cursor:pointer;transform-origin:50% 0;animation:swing 2.6s ease-in-out 1 .6s;color:inherit}
+.tag.go{animation:swing 1.4s ease-in-out 1}
+.tag svg{display:block;width:100%;height:auto;overflow:visible}
+@keyframes swing{0%{transform:rotate(0)}20%{transform:rotate(14deg)}45%{transform:rotate(-10deg)}70%{transform:rotate(5deg)}100%{transform:rotate(0)}}
+.timer{margin:22px 0 6px;background:var(--ink);color:var(--bg);border-radius:18px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.timer b{font:800 22px "Baloo Da 2",sans-serif;font-variant-numeric:tabular-nums;color:var(--gold);letter-spacing:.5px}
+.timer small{font-size:13px;opacity:.85}
+/* section heads */
+h2{font-size:24px;font-weight:800;margin:30px 0 4px}
+.sub{color:var(--mute);font-size:14px;margin-bottom:14px}
+/* ticket cards */
+.tickets{display:grid;gap:14px}
+.ticket{position:relative;display:flex;align-items:stretch;background:var(--card);border:2px solid var(--ink);border-radius:18px;box-shadow:var(--shadow);transition:transform .12s}
+.ticket:active{transform:translateY(3px)}
+.ticket .ic{width:76px;flex:none;display:grid;place-items:center;border-radius:16px 0 0 16px;color:#fff}
+.ticket .ic svg{width:34px;height:34px;fill:currentColor}
+.ticket .tx{flex:1;padding:12px 14px;border-left:2px dashed var(--ink);min-width:0}
+.ticket .tx h3{font-size:18px;font-weight:800;line-height:1.2}
+.ticket .tx p{font-size:13.5px;color:var(--mute);line-height:1.35;margin-top:2px}
+.ticket .go{display:inline-block;margin-top:8px;font:800 14px "Baloo Da 2",sans-serif;color:var(--coral)}
+.ticket::before,.ticket::after{content:"";position:absolute;left:66px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--ink)}
+.ticket::before{top:-11px;clip-path:inset(50% 0 0 0)}
+.ticket::after{bottom:-11px;clip-path:inset(0 0 50% 0)}
+.ticket.main{background:var(--gold);color:var(--onGold)}
+.ticket.main .tx p{color:#3d3a20}.ticket.main .go{color:var(--onGold)}
+.wa{background:#25D366}.tg{background:#229ED9}.tg2{background:#0B6FA4}.fb{background:#1877F2}.yt{background:#E02B20}.web{background:var(--green)}
+/* campaign */
+.camp{margin:22px 0 4px;background:var(--coral);color:#fff;border:2px solid var(--ink);border-radius:22px;box-shadow:var(--shadow);padding:16px 16px 18px;position:relative;overflow:hidden}
+.camp small{font:600 13px "Hind Siliguri",sans-serif;background:#fff;color:var(--ink);border-radius:999px;padding:1px 10px;display:inline-block}
+.camp .ct{font:800 30px/1.05 "Baloo Da 2",sans-serif;margin:8px 0 2px}
+.camp p{font-size:14.5px;opacity:.95;max-width:26em}
+.cd{display:flex;gap:8px;margin:12px 0 4px}
+.cd div{background:rgba(0,0,0,.28);border-radius:12px;min-width:58px;padding:4px 6px;text-align:center}
+.cd b{display:block;font:800 24px/1.1 "Baloo Da 2",sans-serif;font-variant-numeric:tabular-nums}
+.cd span{font-size:11.5px;opacity:.9}
+.cbtn{display:block;margin-top:12px;text-align:center;background:var(--gold);color:#1B2A25;border:2px solid #1B2A25;border-radius:14px;padding:8px;font:800 18px "Baloo Da 2",sans-serif;box-shadow:0 4px 0 #1B2A25}
+.cbtn:active{transform:translateY(4px);box-shadow:none}
+/* stores */
+.stores{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.store{background:var(--card);border:2px solid var(--ink);border-radius:18px;box-shadow:var(--shadow);padding:14px 12px 12px;display:flex;flex-direction:column;gap:8px;transition:transform .12s}
+.store:active{transform:translateY(3px)}
+.store:last-child:nth-child(odd){grid-column:span 2;flex-direction:row;align-items:center}
+.mono{width:48px;height:48px;border-radius:14px;background:var(--c);color:#fff;display:grid;place-items:center;font:800 26px "Baloo Da 2",sans-serif;flex:none}
+.store h3{font-size:19px;font-weight:800;line-height:1.1}
+.store p{font-size:13px;color:var(--mute);line-height:1.3}
+.store em{font:800 14px "Baloo Da 2",sans-serif;color:var(--coral);font-style:normal;margin-top:auto}
+.store:last-child:nth-child(odd) em{margin:0 0 0 auto}
+/* footer */
+.share{width:100%;margin-top:26px;height:50px;font-size:17px}
+footer{margin-top:28px;text-align:center;color:var(--mute);font-size:12.5px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,40px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;font-size:14px;z-index:9}
+.toast.on{transform:translate(-50%,0);opacity:1}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* polish */
+:root{--coral:#E8500A;--camp:#E8500A;--shadow:0 1px 2px rgba(27,42,37,.06),0 10px 24px -14px rgba(27,42,37,.35)}
+:root[data-theme="dark"]{--coral:#FF7A33;--camp:#B93A06;--line:#26392F;--shadow:0 1px 2px rgba(0,0,0,.4),0 12px 24px -14px rgba(0,0,0,.7)}
+body::before{opacity:.3}
+.bar{position:sticky;top:0;z-index:5;margin:-14px -16px 6px;padding:10px 16px;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.pill{border:1px solid var(--line);box-shadow:none}
+.pill:active{transform:scale(.95)}
+.hero h1 span{color:var(--coral)}
+h2{font-size:22px;margin:34px 0 2px}
+.ticket,.store{border:1px solid var(--line);box-shadow:var(--shadow)}
+.ticket:active,.store:active{transform:scale(.985)}
+.ticket .ic{border-radius:17px 0 0 17px}
+.ticket .tx{border-left:1.5px dashed var(--line)}
+.ticket::before,.ticket::after{border:1px solid var(--line)}
+.ticket.main{background:var(--card);color:var(--ink)}
+.ticket.main .tx p{color:var(--mute)}
+.ticket .go,.ticket.main .go{color:var(--coral)}
+.camp{border:0;background:var(--camp);color:#fff}
+.camp small{background:rgba(255,255,255,.95)}
+.cd div{background:rgba(0,0,0,.22)}
+.cbtn{background:#fff;color:#1B2A25;border:0;box-shadow:none;border-radius:12px;padding:10px}
+.cbtn:active{transform:scale(.98)}
+.mono{border-radius:12px}
+.store em{align-self:flex-start;background:var(--coral);color:#fff;border-radius:999px;padding:1px 14px}
+:root[data-theme="dark"] .store em{color:#1a0c04}
+.store:last-child:nth-child(odd) em{align-self:center}
+:focus-visible{outline-color:var(--coral)}
+/* guide */
+[hidden]{display:none!important}
+.camp .l2{display:block;margin-top:10px;text-align:center;color:#fff;text-decoration:underline;font-size:14.5px;font-weight:600}
+.sh{font:800 17px "Baloo Da 2",sans-serif;margin:22px 0 8px}
+.clinks{display:grid;gap:8px}
+.cl{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow)}
+.cl:active{transform:scale(.985)}
+.cl b{font:800 16px "Baloo Da 2",sans-serif;display:block;line-height:1.2}
+.cl small{color:var(--mute);font-size:13px}
+.cl i{font-style:normal;color:var(--coral);font-size:20px;font-weight:700}
+.tl{border-left:2px solid var(--line);margin-left:6px}
+.tli{position:relative;padding:2px 0 14px 18px}
+.tli::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--bg)}
+.tli.done{opacity:.55}.tli.done::before{background:var(--mute)}
+.tli b{font:800 15px "Baloo Da 2",sans-serif;display:block;line-height:1.3}
+.tli span{color:var(--mute);font-size:14px}
+.acc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;overflow:hidden}
+.acc summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center;padding:10px 14px;font-weight:600;min-height:48px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";margin-left:auto;font-size:22px;color:var(--coral)}
+.acc[open] summary::after{content:"–"}
+.acc em{font:800 14px "Baloo Da 2",sans-serif;font-style:normal;background:var(--coral);color:#fff;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;flex:none}
+:root[data-theme="dark"] .acc em{color:#1a0c04}
+.acc p{padding:0 14px 14px 50px;color:var(--mute);font-size:14.5px}
+.know{list-style:none;padding:0;display:grid;gap:8px}
+.know li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--coral);border-radius:12px;padding:10px 14px;font-size:14.5px}
+.trust{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+.trust ul{padding-left:20px;display:grid;gap:8px;color:var(--mute);font-size:14.5px}
+.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:496px;margin:0 auto;z-index:8;background:var(--ink);color:var(--bg);border-radius:16px;padding:8px 8px 8px 16px;display:flex;align-items:center;gap:10px;justify-content:space-between;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.sticky span{font-weight:600;font-size:15px;line-height:1.3}
+.sticky a{background:var(--coral);color:#fff;border-radius:11px;padding:8px 16px;font:800 15px "Baloo Da 2",sans-serif;white-space:nowrap}
+:root[data-theme="dark"] .sticky a{color:#1a0c04}
+body{padding-bottom:84px}
+.toast{bottom:calc(88px + env(safe-area-inset-bottom))}
+/* v3 */
+.chip2{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:600;margin-bottom:10px}
+.streak{display:inline-block;margin-top:12px;background:color-mix(in srgb,var(--coral) 13%,transparent);color:var(--coral);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:600}
+.camp{background:radial-gradient(circle at 90% 10%,rgba(255,255,255,.22) 0 64px,transparent 65px),radial-gradient(circle at 105% 105%,rgba(255,255,255,.13) 0 140px,transparent 141px),linear-gradient(135deg,#F4590C,#C42B05);padding:20px 18px 18px;border-radius:26px}
+:root[data-theme="dark"] .camp{background:radial-gradient(circle at 90% 10%,rgba(255,255,255,.14) 0 64px,transparent 65px),radial-gradient(circle at 105% 105%,rgba(255,255,255,.08) 0 140px,transparent 141px),linear-gradient(135deg,#C2410C,#8E2204)}
+.camp .ct{font-size:34px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 14px;box-shadow:var(--shadow)}
+.mini small{font:800 12.5px "Baloo Da 2",sans-serif;color:var(--coral);text-transform:uppercase;letter-spacing:.5px}
+.mini p{font-size:13.5px;line-height:1.45;margin-top:4px}
+.mini ul{list-style:none;padding:0;margin-top:4px;display:grid;gap:6px}
+.mini li{display:flex;justify-content:space-between;flex-wrap:wrap;gap:0 6px;font-size:13px;line-height:1.35}
+.mini li b{font-weight:600}.mini li span{color:var(--mute)}
+.mini li.on span{color:var(--coral);font-weight:700}
+.mini .fine{font-size:11.5px;color:var(--mute);margin-top:8px}
+.again{margin-top:30px;background:var(--ink);color:var(--bg);border-radius:24px;padding:20px 18px}
+.again h2{margin:0 0 4px;color:var(--bg)}
+.again p{opacity:.85;font-size:14.5px;margin-bottom:14px}
+.agb{display:flex;gap:10px}
+.again .pill,.again .share{flex:1;width:auto;margin-top:0;height:48px;font-size:15px;background:var(--coral);color:#fff;border:0}
+:root[data-theme="dark"] .again .pill{color:#1a0c04}
+/* v4: guide first, slim sale banner */
+.camp{padding:14px 16px;border-radius:22px;margin-top:18px}
+.camp .ct{font-size:26px;margin:6px 0 0}
+.camp p{font-size:14px}
+.cd{margin:10px 0 2px}.cd div{min-width:50px;padding:3px 6px}.cd b{font-size:20px}
+.cbtn{margin-top:10px;font-size:16px;padding:8px}
+.acc .inner{padding:0 14px 14px}
+.flags{display:grid;gap:10px}
+.flag{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow)}
+.flag h3{font:800 16px "Baloo Da 2",sans-serif;margin-bottom:6px}
+.flag ul{list-style:none;padding:0;display:grid;gap:6px;font-size:14.5px}
+.flag li{padding-left:24px;position:relative;line-height:1.4}
+.flag li::before{position:absolute;left:0;font-weight:800}
+.good h3,.good li::before{color:#14804A}.good li::before{content:"✓"}
+.bad h3,.bad li::before{color:#C62828}.bad li::before{content:"✕"}
+:root[data-theme="dark"] .good h3,:root[data-theme="dark"] .good li::before{color:#4ADE98}
+:root[data-theme="dark"] .bad h3,:root[data-theme="dark"] .bad li::before{color:#FF8A80}
+.mono.lg{background:#fff;border:1px solid var(--line)}
+.mono img{width:34px;height:34px;object-fit:contain;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <div class="brand"><i><svg viewBox="0 0 40 40" width="28" height="28" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27.500 17.500 31.500 16 33 32.500H28.500" fill="#fff" stroke-width="1.500"/><path d="M9.500 15H26.500L27.500 32H8Z"/><path d="M14.500 15V12a4.500 4.500 0 0 1 9 0V15"/></svg></i><span>Shopping Guide BD<small data-t="brandsub">Online shopping guide</small></span></div>
+    <div class="ctl">
+      <button class="pill" id="lang" aria-label="Language">বাং</button>
+      <button class="pill" id="theme" aria-label="Switch light or dark mode">🌙</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <button class="tag" id="tag" aria-label="Price tag">
+      <svg viewBox="0 0 100 140"><line x1="50" y1="0" x2="50" y2="22" stroke="currentColor" stroke-width="3"/><path d="M20 30 Q20 22 28 22 H72 Q80 22 80 30 V120 Q80 128 72 128 H28 Q20 128 20 120Z" fill="#FFB627" stroke="#1B2A25" stroke-width="3"/><circle cx="50" cy="38" r="6" fill="#FFF6E5" stroke="#1B2A25" stroke-width="3"/><text x="50" y="76" text-anchor="middle" font-family="Baloo Da 2,sans-serif" font-weight="800" font-size="26" fill="#1B2A25">HOT</text><text x="50" y="100" text-anchor="middle" font-family="Baloo Da 2,sans-serif" font-weight="800" font-size="15" fill="#F0452A">DEALS</text></svg>
+    </button>
+    <h1><span data-t="h1a">Shop Smart.</span><span data-t="h1b" style="color:var(--ink)">Save More.</span></h1>
+    <p data-t="lead">Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.</p>
+    <div class="streak" id="streak" hidden></div>
+  </header>
+
+  <section class="camp" id="camp" aria-live="polite">
+    <small id="cLabel"></small>
+    <div class="ct" id="cTitle"></div>
+    <p id="cSub"></p>
+    <div class="cd" id="cCd" hidden></div>
+    <a class="cbtn" id="cBtn" target="_blank" rel="noopener sponsored"></a>
+    <a class="l2" href="#guide" data-t="seeGuide">How to grab the deals ↓</a>
+  </section>
+
+  <div class="duo">
+    <div class="mini"><small data-t="tipL">Tip of the day</small><p id="tip"></p></div>
+    <div class="mini"><small data-t="nextL">Upcoming sales</small><ul id="sales"></ul><p class="fine" data-t="saleNote">Typical dates. Confirm in the shop’s app.</p></div>
+  </div>
+
+  <section id="guide">
+    <h2 data-t="gH">Smart shopping in 6 steps</h2>
+    <p class="sub" data-t="gS">Follow this checklist for every online order. It takes two minutes and can save you money and trouble.</p>
+    <div id="steps"></div>
+
+    <h2 data-t="rfH">Real deal or fake discount?</h2>
+    <p class="sub" data-t="rfS">Quick signs to check before you pay.</p>
+    <div class="flags">
+      <div class="flag good"><h3 data-t="gdH">Good signs</h3><ul id="good"></ul></div>
+      <div class="flag bad"><h3 data-t="bdH">Red flags</h3><ul id="bad"></ul></div>
+    </div>
+
+    <h2 data-t="safeH">Stay safe from scams</h2>
+    <ul class="know" id="know"></ul>
+  </section>
+
+  <h2 data-t="stH">Where to shop in Bangladesh</h2>
+  <p class="sub" data-t="stS">Compare before you buy. Tap a store to see current deals.</p>
+  <div class="stores" id="stores"></div>
+
+  <h2 data-t="joinH">Join the community</h2>
+  <p class="sub" data-t="joinS">Join one channel and get every new deal first. Flash sales end in hours.</p>
+  <div class="tickets">
+    <a class="ticket main" href="https://t.me/ShoppingGuideBD2" target="_blank" rel="noopener">
+      <div class="ic tg"><svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13 1.9 11.5c-1-.3-1-1 .2-1.5L20.4 3c.9-.3 1.6.2 1.5 1.3z"/></svg></div>
+      <div class="tx"><h3 data-t="t2">Shopping Guide BD channel</h3><p data-t="t2d">Deals, tips and reviews from Shopping Guide BD.</p><span class="go" data-t="join">Join now</span></div>
+    </a>
+    <a class="ticket" href="https://t.me/ShoppingGuideBD" target="_blank" rel="noopener">
+      <div class="ic tg2"><svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13 1.9 11.5c-1-.3-1-1 .2-1.5L20.4 3c.9-.3 1.6.2 1.5 1.3z"/></svg></div>
+      <div class="tx"><h3 data-t="t7">Telegram group</h3><p data-t="t7d">Ask questions and share deals with other shoppers.</p><span class="go" data-t="join">Join now</span></div>
+    </a>
+    <a class="ticket" href="https://www.facebook.com/ShoppingGuideBD" target="_blank" rel="noopener">
+      <div class="ic fb"><svg viewBox="0 0 24 24"><path d="M14 8V6.5c0-.7.2-1 1.1-1H17V2h-2.8C11.2 2 10 3.700 10 6.200V8H8v3.500h2V22h4v-10.500h2.700L17 8z"/></svg></div>
+      <div class="tx"><h3 data-t="t3">Facebook page</h3><p data-t="t3d">Follow for posts, giveaways and shopping updates.</p><span class="go" data-t="follow">Follow</span></div>
+    </a>
+    <a class="ticket" href="https://www.facebook.com/groups/shoppingguidebd" target="_blank" rel="noopener">
+      <div class="ic fb"><svg viewBox="0 0 24 24"><path d="M14 8V6.5c0-.7.2-1 1.1-1H17V2h-2.8C11.2 2 10 3.700 10 6.200V8H8v3.500h2V22h4v-10.500h2.700L17 8z"/></svg></div>
+      <div class="tx"><h3 data-t="t8">Facebook group</h3><p data-t="t8d">Join the group to ask, share and discuss with other buyers.</p><span class="go" data-t="join">Join now</span></div>
+    </a>
+    <a class="ticket" href="https://www.youtube.com/@ShoppingGuideBDOfficial" target="_blank" rel="noopener">
+      <div class="ic yt"><svg viewBox="0 0 24 24"><path d="M22 8.200c-.2-1-.9-1.700-1.900-1.900C18.500 6 12 6 12 6s-6.500 0-8.100.3C2.900 6.500 2.200 7.200 2 8.200 1.700 9.800 1.700 12 1.700 12s0 2.200.3 3.800c.2 1 .9 1.700 1.900 1.900C5.500 18 12 18 12 18s6.500 0 8.100-.3c1-.2 1.700-.9 1.900-1.900.3-1.600.3-3.800.3-3.800s0-2.200-.3-3.800zM10 15V9l5.200 3z"/></svg></div>
+      <div class="tx"><h3 data-t="t4">YouTube channel</h3><p data-t="t4d">Product reviews and how-to shopping videos.</p><span class="go" data-t="watch">Watch</span></div>
+    </a>
+    <a class="ticket" href="https://t.me/Daraz_Offers_and_Deals" target="_blank" rel="noopener">
+      <div class="ic tg2"><svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13 1.9 11.5c-1-.3-1-1 .2-1.5L20.4 3c.9-.3 1.6.2 1.5 1.3z"/></svg></div>
+      <div class="tx"><h3 data-t="t1">Daraz Offers & Deals</h3><p data-t="t1d">Daraz deals, flash sales and vouchers on Telegram.</p><span class="go" data-t="join">Join now</span></div>
+    </a>
+    <a class="ticket" href="https://shoppingguidebd.blogspot.com/" target="_blank" rel="noopener">
+      <div class="ic web"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.900 9h-3a15.600 15.600 0 0 0-1.300-5.500A8 8 0 0 1 18.900 11zM12 4c.8 1.100 1.500 3 1.900 7h-3.800c.4-4 1.100-5.900 1.900-7zM4.300 13h3a15.600 15.600 0 0 0 1.300 5.500A8 8 0 0 1 4.300 13zm3-2h-3a8 8 0 0 1 4.300-5.500A15.600 15.600 0 0 0 7.300 11zM12 20c-.8-1.100-1.500-3-1.900-7h3.800c-.4 4-1.100 5.900-1.900 7zm2.400-1.500a15.600 15.600 0 0 0 1.300-5.500h3a8 8 0 0 1-4.300 5.500z"/></svg></div>
+      <div class="tx"><h3 data-t="t5">Our blog</h3><p data-t="t5d">Full buying guides and the latest offers in one place.</p><span class="go" data-t="visit">Visit site</span></div>
+    </a>
+  </div>
+
+  
+
+  <h2 data-t="wH">About this guide</h2>
+  <div class="trust"><ul><li data-t="w1"></li><li data-t="w2"></li><li data-t="w3"></li></ul></div>
+
+  <section class="again">
+    <h2 data-t="agH">New deals every day. Come back daily.</h2>
+    <p data-t="agS">Bookmark this page and join a channel so you never miss a flash sale.</p>
+    <div class="agb"><button class="pill" id="pwa" data-t="addHome">Add to home screen</button><button class="pill share" id="share" data-t="share">Share with friends</button></div>
+  </section>
+  <footer><span data-t="disc">We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.</span><br>© Shopping Guide BD</footer>
+</div>
+<div class="sticky" id="sticky" hidden><span id="sTx"></span><a id="sBtn" target="_blank" rel="noopener sponsored"></a></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== EDIT HERE ===== */
+/* 1) Campaign banner. Change this only when a sale comes (11.11, Eid, Black Friday).
+      After "end" passes, the banner switches to "Daily deals on Telegram" by itself.
+      Set CAMPAIGN=null to hide the campaign. */
+var CAMPAIGN={
+  title:{en:"11.11 Biggest Sale of the Year",bn:"১১.১১ বছরের সেরা সেল"},
+  short:{en:"11.11 Sale",bn:"১১.১১ সেল"},
+  sub:{en:"The biggest sale of the year is on. Don’t miss it.",bn:"বছরের সেরা সেল চলছে। মিস করবেন না।"},
+  end:"2026-11-21T23:59:59+06:00",
+  url:"https://s.daraz.com.bd/s.YhNmR?cc"
+};
+/* 2) Stores. Replace each url with your affiliate link (or leave the normal store link). */
+var STORES=[
+  /* d = website, used to load the shop's own icon. To use a full logo file instead, add img:"logo-daraz.png" */
+  {n:"Daraz",m:"D",c:"#F85606",d:"daraz.com.bd",t:{en:"Everyday deals and vouchers",bn:"প্রতিদিনের ডিল ও ভাউচার"},url:"https://s.daraz.com.bd/s.YfNof?cc"},
+  {n:"Rokomari",m:"R",c:"#2E7D5B",d:"rokomari.com",t:{en:"Books and more",bn:"বই ও আরও অনেক কিছু"},url:"https://rkmri.co/03MR0ARe2M52/"},
+  {n:"StarTech",m:"S",c:"#1B64D8",d:"startech.com.bd",t:{en:"Computers and gadgets",bn:"কম্পিউটার ও গ্যাজেট"},url:"https://www.startech.com.bd/asus-vivobook-go-14-e1404ta-intel-n150-cool-silver-laptop?tracking=66f264a05d85b"},
+  {n:"Pickaboo",m:"P",c:"#E63946",d:"pickaboo.com",t:{en:"Phones and electronics",bn:"ফোন ও ইলেকট্রনিক্স"},url:"https://www.pickaboo.com/"},
+  {n:"Cartup",m:"C",c:"#7B3FE4",d:"cartup.com",t:{en:"Daily shopping",bn:"দৈনন্দিন কেনাকাটা"},url:"https://cartup.trk2afse.com/click?pid=102&offer_id=7"},
+  {n:"Fabrilife",m:"F",c:"#E0245E",d:"fabrilife.com",t:{en:"T-shirts and fashion",bn:"টি-শার্ট ও ফ্যাশন"},url:"https://fabrilife.com/r/GENZ10"},
+  {n:"10 Minute School",m:"10",c:"#0E9AA7",d:"10minuteschool.com",t:{en:"Online courses and skills",bn:"অনলাইন কোর্স ও স্কিল"},url:"https://10ms.io/mZDYRj"}
+];
+var TELEGRAM="https://t.me/ShoppingGuideBD2";
+/* 4) Guide content. Edit freely. */
+var STEPS=[
+  {t:{en:"Decide what you need and your budget",bn:"কী কিনবেন ও বাজেট ঠিক করুন"},d:{en:"Write down the item and the most you will pay. This stops impulse buying during big sales.",bn:"কী কিনবেন আর সর্বোচ্চ কত খরচ করবেন লিখে রাখুন। বড় সেলের সময় বাড়তি কেনা থামাতে এটি সাহায্য করে।"}},
+  {t:{en:"Compare prices in two or three shops",bn:"দুই-তিনটি শপে দাম মিলিয়ে নিন"},d:{en:"Check the same model in different shops. A real discount still looks good after you compare.",bn:"একই মডেল আলাদা শপে দেখুন। তুলনার পরেও ভালো থাকলে ছাড়টি আসল।"}},
+  {t:{en:"Check the seller and reviews",bn:"সেলার ও রিভিউ দেখুন"},d:{en:"Read the seller rating, recent reviews with photos, and how many orders they have completed. Do not rely only on the star count.",bn:"সেলার রেটিং, ছবিসহ সাম্প্রতিক রিভিউ ও কতগুলো অর্ডার হয়েছে দেখুন। শুধু স্টার দেখে ভরসা করবেন না।"}},
+  {t:{en:"Use vouchers and the right payment",bn:"ভাউচার ও সঠিক পেমেন্ট"},d:{en:"Apply store and bank vouchers and check the minimum spend. Use the bank card or wallet named in the offer to unlock extra discounts.",bn:"স্টোর ও ব্যাংক ভাউচার দিন, ন্যূনতম কেনাকাটা দেখে নিন। অফারে উল্লেখ করা ব্যাংক কার্ড বা ওয়ালেটে পেমেন্ট করলে বাড়তি ছাড় মেলে।"}},
+  {t:{en:"Pay safely",bn:"নিরাপদে পেমেন্ট করুন"},d:{en:"Prefer cash on delivery for a first order from a new seller. Pay only inside the shop’s app or website, never to a personal bKash or Nagad number.",bn:"নতুন সেলার থেকে প্রথম অর্ডারে ক্যাশ অন ডেলিভারি বেছে নিন। পেমেন্ট শুধু শপের অ্যাপ বা ওয়েবসাইটে করুন, কারও ব্যক্তিগত bKash বা Nagad নম্বরে নয়।"}},
+  {t:{en:"Check your parcel and keep proof",bn:"পার্সেল দেখুন ও প্রমাণ রাখুন"},d:{en:"If the shop allows it, open the package in front of the delivery person and check the item. Keep the invoice and screenshots until the return window ends.",bn:"শপ অনুমতি দিলে ডেলিভারি কর্মীর সামনে প্যাকেট খুলে পণ্য দেখুন। রিটার্নের সময় শেষ না হওয়া পর্যন্ত ইনভয়েস ও স্ক্রিনশট রাখুন।"}}
+];
+var GOOD=[
+  {en:"Official shop app or website",bn:"শপের অফিসিয়াল অ্যাপ বা ওয়েবসাইট"},
+  {en:"Price is close to what other shops charge",bn:"অন্য শপের দামের কাছাকাছি"},
+  {en:"Clear return and warranty information",bn:"রিটার্ন ও ওয়ারেন্টির তথ্য পরিষ্কার"},
+  {en:"Cash on delivery or payment inside the app",bn:"ক্যাশ অন ডেলিভারি বা অ্যাপের ভেতরে পেমেন্ট"},
+  {en:"Many recent reviews with real photos",bn:"অনেক সাম্প্রতিক রিভিউ, আসল ছবিসহ"}
+];
+var BAD=[
+  {en:"Price far below every other shop",bn:"অন্য সব শপের চেয়ে অনেক কম দাম"},
+  {en:"Asks for advance payment to a personal number",bn:"ব্যক্তিগত নম্বরে অগ্রিম পেমেন্ট চায়"},
+  {en:"Pressure like “only 1 hour left, pay now”",bn:"“মাত্র ১ ঘণ্টা বাকি, এখনই পেমেন্ট করুন” ধরনের চাপ"},
+  {en:"Unknown link in a message, or a copycat page",bn:"মেসেজে অচেনা লিংক বা নকল পেজ"},
+  {en:"No return policy and no seller details",bn:"রিটার্ন পলিসি নেই, সেলারের তথ্য নেই"}
+];
+var SALES=[
+  {on:"2026-11-10",end:"2026-11-21",n:{en:"11.11 Sale",bn:"১১.১১ সেল"}},
+  {on:"2026-11-27",end:"2026-11-27",n:{en:"Black Friday",bn:"ব্ল্যাক ফ্রাইডে"}},
+  {on:"2026-12-12",end:"2026-12-12",n:{en:"12.12 Sale",bn:"১২.১২ সেল"}}
+];
+var TIPS=[
+  {en:"Compare the price in two shops before you pay. A big “discount” can start from a raised price.",bn:"পেমেন্টের আগে দুই শপে দাম মিলিয়ে নিন। বড় “ছাড়” অনেক সময় বাড়ানো দাম থেকে শুরু হয়।"},
+  {en:"Pay with the bank card or wallet named in the offer to unlock extra vouchers. Read the terms first.",bn:"অফারে উল্লেখ করা ব্যাংক কার্ড বা ওয়ালেটে পেমেন্ট করলে বাড়তি ভাউচার মেলে। আগে শর্ত পড়ুন।"},
+  {en:"Check the seller rating and read recent reviews, not only the star count.",bn:"শুধু স্টার নয়, সেলার রেটিং ও সাম্প্রতিক রিভিউ পড়ুন।"},
+  {en:"Cash on delivery is safer for a first order from a new seller, where it is offered.",bn:"নতুন সেলার থেকে প্রথম অর্ডারে সুবিধা থাকলে ক্যাশ অন ডেলিভারি নিরাপদ।"},
+  {en:"Save your delivery address and keep your cart ready before a flash sale starts.",bn:"ফ্ল্যাশ সেল শুরুর আগে ডেলিভারি ঠিকানা সেভ করে কার্ট সাজিয়ে রাখুন।"},
+  {en:"Check the return window before you buy. It differs by product and category.",bn:"কেনার আগে রিটার্নের সময় দেখুন। এটি পণ্য ও ক্যাটাগরিভেদে আলাদা।"},
+  {en:"Never share your OTP or password with a caller or message, even one claiming to be from the shop.",bn:"ফোন বা মেসেজে কেউ চাইলে OTP বা পাসওয়ার্ড দেবেন না, শপের লোক দাবি করলেও।"}
+];
+var KNOW=[
+  {en:"Never share your OTP or password with anyone, even if they say they are from the shop.",bn:"OTP বা পাসওয়ার্ড কাউকে বলবেন না, তিনি শপের লোক দাবি করলেও।"},
+  {en:"Open shops only through the official app or website. Check the web address before you log in or pay.",bn:"শপে ঢুকুন শুধু অফিসিয়াল অ্যাপ বা ওয়েবসাইট দিয়ে। লগইন বা পেমেন্টের আগে ওয়েব ঠিকানা দেখুন।"},
+  {en:"Keep the order number, invoice and payment screenshot. You need them for a return or complaint.",bn:"অর্ডার নম্বর, ইনভয়েস ও পেমেন্টের স্ক্রিনশট রাখুন। রিটার্ন বা অভিযোগে লাগবে।"},
+  {en:"If a seller cheats you, report it to the shop’s support first. You can also call the national consumer hotline 16121.",bn:"কোনো সেলার ঠকালে আগে শপের সাপোর্টে জানান। জাতীয় ভোক্তা হটলাইন ১৬১২১ নম্বরেও জানাতে পারেন।"}
+];
+/* ===================== */
+var T={
+en:{h1a:"Shop Smart.",h1b:"Save More.",lead:"Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.",ends:"Today’s picks refresh in",joinH:"Join the community",joinS:"Join one channel and get every new deal first. Flash sales end in hours.",t1:"Daraz Offers & Deals",t1d:"Daraz deals, flash sales and vouchers on Telegram.",t2:"Shopping Guide BD channel",t2d:"Deals, tips and reviews from Shopping Guide BD.",t3:"Facebook page",t3d:"Follow for posts, giveaways and shopping updates.",t4:"YouTube channel",t4d:"Product reviews and how-to shopping videos.",t5:"Our blog",t6:"WhatsApp channel",t6d:"Quick deal alerts straight to your phone.",t5d:"Full buying guides and the latest offers in one place.",join:"Join now",follow:"Follow",watch:"Watch",visit:"Visit site",trH:"Trending deals",trS:"Hand-picked deals from top online shops.",share:"Share with friends",disc:"We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.",buy:"View deal",off:"off",toastTag:"New deals every day!",copied:"Link copied",lang:"বাং",brandsub:"Online shopping guide",t7:"Telegram group",t7d:"Ask questions and share deals with other shoppers.",t8:"Facebook group",t8d:"Join the group to ask, share and discuss with other buyers.",rfH:"Real deal or fake discount?",rfS:"Quick signs to check before you pay.",gdH:"Good signs",bdH:"Red flags",safeH:"Stay safe from scams",saleP:"11.11 sale pages and dates",bdChip:"🇧🇩 Made for Bangladeshi shoppers",tipL:"Tip of the day",nextL:"Upcoming sales",saleNote:"Typical dates. Confirm in the shop’s app.",agH:"New deals every day. Come back daily.",agS:"Bookmark this page and join a channel so you never miss a flash sale.",addHome:"Add to home screen",homeHow:"Open your browser menu and tap “Add to Home screen”.",seeGuide:"Smart shopping checklist ↓",gH:"Smart shopping in 6 steps",gS:"Follow this checklist for every online order. It takes two minutes and can save you money and trouble.",clH:"Daraz 11.11 campaign pages",calH:"Sale timeline",stepH:"How to grab deals, step by step",knowH:"Good to know",wH:"About this guide",w1:"Shopping Guide BD is an independent guide. We don’t sell anything.",w2:"We update this page when a new sale or campaign starts.",w3:"Prices, stock and offers change fast. Check the final price and terms in the shop’s app before you pay.",sLive:"is live",sOpen:"See offers",stH:"Where to shop in Bangladesh",stS:"Compare before you buy. Tap a store to see current deals.",shop:"Shop deals",live:"Live now",endsIn:"Ends in",campBtn:"See the 11.11 sale",fbT:"Daily deals on Telegram",fbS:"Join the channel to get new offers and vouchers first.",fbB:"Join on Telegram",dd:"days",hh:"hrs",mm:"min",ss:"sec"},
+bn:{h1a:"স্মার্ট শপিং।",h1b:"বেশি সাশ্রয়।",lead:"বাংলাদেশে অনলাইনে কেনাকাটার ফ্রি গাইড: আসল ডিল চিনুন, শপ তুলনা করুন, নিরাপদে পেমেন্ট করুন, প্রতারণা এড়ান।",ends:"আজকের পিক বদলাতে বাকি",joinH:"কমিউনিটিতে যোগ দিন",joinS:"যেকোনো একটি চ্যানেলে যোগ দিন, নতুন ডিল সবার আগে পান। ফ্ল্যাশ সেল কয়েক ঘণ্টায় শেষ হয়।",t1:"দারাজ অফার ও ডিলস",t1d:"টেলিগ্রামে দারাজের ডিল, ফ্ল্যাশ সেল ও ভাউচার।",t2:"শপিং গাইড বিডি চ্যানেল",t2d:"শপিং গাইড বিডি-র ডিল, টিপস ও রিভিউ।",t3:"ফেসবুক পেজ",t3d:"পোস্ট, গিভঅ্যাওয়ে ও শপিং আপডেটের জন্য ফলো করুন।",t4:"ইউটিউব চ্যানেল",t4d:"প্রোডাক্ট রিভিউ ও শপিং টিউটোরিয়াল ভিডিও।",t5:"আমাদের ব্লগ",t6:"হোয়াটসঅ্যাপ চ্যানেল",t6d:"সরাসরি ফোনে দ্রুত ডিল অ্যালার্ট।",t5d:"কেনাকাটার পূর্ণ গাইড ও সর্বশেষ অফার এক জায়গায়।",join:"যোগ দিন",follow:"ফলো করুন",watch:"দেখুন",visit:"সাইটে যান",trH:"ট্রেন্ডিং ডিল",trS:"দেশের সেরা অনলাইন শপ থেকে বাছাই করা ডিল।",share:"বন্ধুদের সাথে শেয়ার করুন",disc:"আমরা একটি শপিং গাইড, দোকান নই। আমরা অনলাইন শপের লিংক দিই এবং এতে আপনার বাড়তি খরচ ছাড়াই সামান্য কমিশন পেতে পারি।",buy:"ডিল দেখুন",off:"ছাড়",toastTag:"প্রতিদিন নতুন ডিল!",copied:"লিংক কপি হয়েছে",lang:"EN",brandsub:"অনলাইন শপিং গাইড",t7:"টেলিগ্রাম গ্রুপ",t7d:"প্রশ্ন করুন ও অন্য ক্রেতাদের সাথে ডিল শেয়ার করুন।",t8:"ফেসবুক গ্রুপ",t8d:"প্রশ্ন, শেয়ার ও আলোচনার জন্য গ্রুপে যোগ দিন।",rfH:"আসল ডিল নাকি নকল ছাড়?",rfS:"পেমেন্টের আগে দ্রুত দেখে নিন।",gdH:"ভালো লক্ষণ",bdH:"সতর্ক সংকেত",safeH:"প্রতারণা থেকে সাবধান",saleP:"১১.১১ সেলের পেজ ও তারিখ",bdChip:"🇧🇩 বাংলাদেশি ক্রেতাদের জন্য",tipL:"আজকের টিপ",nextL:"আসন্ন সেল",saleNote:"সম্ভাব্য তারিখ। শপের অ্যাপে নিশ্চিত হয়ে নিন।",agH:"রোজ নতুন ডিল। রোজ একবার ঘুরে যান।",agS:"এই পাতা বুকমার্ক করুন এবং চ্যানেলে যোগ দিন, কোনো ফ্ল্যাশ সেল মিস করবেন না।",addHome:"হোম স্ক্রিনে যোগ করুন",homeHow:"ব্রাউজারের মেনু খুলে “Add to Home screen” চাপুন।",seeGuide:"স্মার্ট কেনাকাটার চেকলিস্ট ↓",gH:"স্মার্ট কেনাকাটার ৬ ধাপ",gS:"প্রতিটি অনলাইন অর্ডারে এই চেকলিস্ট মেনে চলুন। দুই মিনিট লাগে, টাকা ও ঝামেলা দুটোই বাঁচে।",clH:"দারাজ ১১.১১ ক্যাম্পেইন পেজ",calH:"সেলের সময়সূচি",stepH:"ধাপে ধাপে ডিল ধরার নিয়ম",knowH:"জেনে রাখুন",wH:"এই গাইড সম্পর্কে",w1:"শপিং গাইড বিডি একটি স্বাধীন গাইড। আমরা কিছু বিক্রি করি না।",w2:"নতুন সেল বা ক্যাম্পেইন শুরু হলে আমরা এই পাতা আপডেট করি।",w3:"দাম, স্টক ও অফার দ্রুত বদলায়। পেমেন্টের আগে শপের অ্যাপে চূড়ান্ত দাম ও শর্ত দেখে নিন।",sLive:"চলছে",sOpen:"ডিল দেখুন",stH:"বাংলাদেশে কোথায় কিনবেন",stS:"কেনার আগে তুলনা করুন। স্টোরে ট্যাপ করে চলমান ডিল দেখুন।",shop:"ডিল দেখুন",live:"এখন চলছে",endsIn:"শেষ হতে বাকি",campBtn:"১১.১১ সেল দেখুন",fbT:"প্রতিদিনের ডিল টেলিগ্রামে",fbS:"নতুন অফার ও ভাউচার সবার আগে পেতে চ্যানেলে যোগ দিন।",fbB:"টেলিগ্রামে যোগ দিন",dd:"দিন",hh:"ঘণ্টা",mm:"মিনিট",ss:"সেকেন্ড"}
+};
+var $=function(s){return document.querySelector(s)};
+var lang="en",root=document.documentElement;
+function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function num(n){var s=String(n);return lang==="bn"?s.replace(/\d/g,function(d){return"০১২৩৪৫৬৭৮৯"[d]}):s}
+function toast(m){var t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(function(){t.classList.remove("on")},1800)}
+function live(){return CAMPAIGN&&new Date(CAMPAIGN.end)-new Date()>0}
+function campaign(){
+  var L=T[lang],on=live(),cd=$("#cCd");
+  if(on){$("#sTx").textContent=(CAMPAIGN.short||CAMPAIGN.title)[lang]+" "+L.sLive;var sb=$("#sBtn");sb.textContent=L.sOpen;sb.href=CAMPAIGN.url}
+  stick();
+  $("#cLabel").textContent=on?L.live:"Telegram";
+  $("#cTitle").textContent=on?CAMPAIGN.title[lang]:L.fbT;
+  $("#cSub").textContent=on?CAMPAIGN.sub[lang]:L.fbS;
+  var b=$("#cBtn");b.textContent=on?L.campBtn:L.fbB;b.href=on?CAMPAIGN.url:TELEGRAM;
+  cd.hidden=!on;if(!on)return;
+  var s=Math.floor((new Date(CAMPAIGN.end)-new Date())/1000),p=function(x){return num(String(x).padStart(2,"0"))};
+  var u=[[Math.floor(s/86400),L.dd],[Math.floor(s%86400/3600),L.hh],[Math.floor(s%3600/60),L.mm],[s%60,L.ss]];
+  cd.innerHTML=u.map(function(x){return"<div><b>"+p(x[0])+"</b><span>"+x[1]+"</span></div>"}).join("");
+}
+function logo(x){
+  var src=x.img||"https://www.google.com/s2/favicons?domain="+x.d+"&sz=128";
+  return'<b class="mono lg"><img src="'+src+'" alt="" width="34" height="34" loading="lazy" onerror="this.parentNode.className=\'mono\';this.parentNode.textContent=\''+x.m+'\'"></b>';
+}
+function render(){
+  document.querySelectorAll("[data-t]").forEach(function(el){var v=T[lang][el.dataset.t];if(v)el.textContent=v});
+  root.lang=lang==="bn"?"bn":"en";$("#lang").textContent=T[lang].lang;
+  $("#stores").innerHTML=STORES.map(function(x){
+    return'<a class="store" style="--c:'+x.c+'" href="'+x.url.replace(/&/g,"&amp;")+'" target="_blank" rel="noopener sponsored">'+logo(x)+'<span><h3>'+x.n+'</h3><p>'+x.t[lang]+'</p></span><em>'+T[lang].shop+'</em></a>'}).join("");
+  renderGuide();renderMini();campaign();
+}
+function renderGuide(){
+  $("#steps").innerHTML=STEPS.map(function(x,i){return'<details class="acc"'+(i===0?" open":"")+'><summary><em>'+num(i+1)+'</em>'+x.t[lang]+'</summary><p>'+x.d[lang]+'</p></details>'}).join("");
+  $("#know").innerHTML=KNOW.map(function(x){return'<li>'+x[lang]+'</li>'}).join("");
+  $("#good").innerHTML=GOOD.map(function(x){return'<li>'+x[lang]+'</li>'}).join("");
+  $("#bad").innerHTML=BAD.map(function(x){return'<li>'+x[lang]+'</li>'}).join("");
+}
+function renderMini(){
+  var now=Date.now(),L=T[lang];
+  $("#tip").textContent=TIPS[Math.floor(now/864e5)%TIPS.length][lang];
+  $("#sales").innerHTML=SALES.filter(function(x){return new Date(x.end+"T23:59:59+06:00")>now}).slice(0,3).map(function(x){
+    var st=new Date(x.on+"T00:00:00+06:00")-now,d=Math.ceil(st/864e5),on=st<=0;
+    var tx=on?L.live:(lang==="bn"?num(d)+" দিন পরে":"in "+num(d)+(d===1?" day":" days"));
+    return'<li'+(on?' class="on"':'')+'><b>'+x.n[lang]+'</b><span>'+tx+'</span></li>'}).join("");
+  var e=$("#streak");e.hidden=false;
+  e.textContent=STREAK>1?(lang==="bn"?"🔥 টানা "+num(STREAK)+" দিন। কাল নতুন ডিল নিয়ে আবার দেখা হবে।":"🔥 "+STREAK+"-day streak. See you tomorrow for new deals."):(lang==="bn"?"👋 স্বাগতম! রোজ নতুন ডিল আসে, কাল আবার ঘুরে যান।":"👋 Welcome! New deals land every day. Come back tomorrow.");
+}
+function visit(){var d=new Date(Date.now()+216e5).toISOString().slice(0,10),n=1;
+  try{var o=JSON.parse(load("sg-streak")||"null");if(o){if(o.d===d)n=o.n;else if(new Date(d)-new Date(o.d)===864e5)n=o.n+1}save("sg-streak",JSON.stringify({d:d,n:n}))}catch(x){}
+  return n}
+var STREAK=visit(),dip=null;
+addEventListener("beforeinstallprompt",function(e){e.preventDefault();dip=e});
+$("#pwa").onclick=function(){if(dip){dip.prompt();dip=null}else toast(T[lang].homeHow)};
+if(matchMedia("(display-mode: standalone)").matches)$("#pwa").hidden=true;
+var campVis=true;
+function stick(){$("#sticky").hidden=!(live()&&!campVis)}
+if(window.IntersectionObserver)new IntersectionObserver(function(e){campVis=e[0].isIntersecting;stick()}).observe($("#camp"));
+$("#lang").onclick=function(){lang=lang==="en"?"bn":"en";save("sg-lang",lang);render()};
+function setTheme(t){root.dataset.theme=t;$("#theme").textContent=t==="dark"?"☀️":"🌙";$("#theme").setAttribute("aria-pressed",t==="dark");document.querySelector('meta[name=theme-color]').content=t==="dark"?"#0D1815":"#E8500A"}
+$("#theme").onclick=function(){var t=root.dataset.theme==="dark"?"light":"dark";setTheme(t);save("sg-theme",t)};
+$("#tag").onclick=function(){var t=$("#tag");t.classList.remove("go");void t.offsetWidth;t.classList.add("go");toast(T[lang].toastTag)};
+$("#share").onclick=function(){
+  var d={title:"Shopping Guide BD",text:"Shop Smart. Save More.",url:location.href};
+  if(navigator.share){navigator.share(d).catch(function(){})}
+  else if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(function(){toast(T[lang].copied)})}
+};
+lang=load("sg-lang")||"en";
+setTheme(load("sg-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
+render();setInterval(campaign,1000);
+if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}
+</script>
+</body>
+</html>
