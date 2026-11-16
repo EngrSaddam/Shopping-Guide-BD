@@ -316,6 +316,14 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;bor
   footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
 }
 @media (min-width:1500px){.wrap{max-width:1320px}.barin{max-width:1256px}}
+
+/* v8 equal-size buttons */
+.agb{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.again .pill,.again .share{width:100%;height:50px;min-width:0;padding:0 14px;font-size:15px;line-height:1.15;text-align:center}
+@media (min-width:900px){
+  .agb{gap:14px}
+  .again .pill,.again .share{height:54px;font-size:16px}
+}
 </style>
 </head>
 <body>
