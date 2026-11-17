@@ -124,6 +124,7 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;bor
 .st small{color:var(--mute);font-size:13px}
 .soc em{margin-left:auto;font:800 14px "Baloo Da 2",sans-serif;font-style:normal;color:var(--co)}
 .rvbox{display:grid;gap:14px}
+.rvbox>*{min-width:0}
 .rvs{display:grid;gap:12px}
 .rsum{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .rsum b{font:800 38px "Baloo Da 2",sans-serif;line-height:1}
@@ -173,6 +174,7 @@ footer details p{text-align:left;max-width:640px;margin:6px auto}
 .sticky a{background:var(--co);color:var(--on);border-radius:11px;padding:8px 16px;font:800 15px "Baloo Da 2",sans-serif;white-space:nowrap}
 .toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translate(-50%,40px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;font-size:14px;z-index:9;max-width:92vw;text-align:center}
 .toast.on{transform:translate(-50%,0);opacity:1}
+.authbox{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (min-width:900px){
 body{font-size:17px;padding-bottom:40px}
@@ -285,6 +287,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
     <div class="rvbox">
       <div><div class="chips" id="chips"></div><div class="rsum" id="rsum"></div><div class="rvs" id="rvs" aria-live="polite"></div></div>
       <form class="rf" id="rf" novalidate>
+        <div class="authbox" id="authBox"></div>
         <select name="st" id="stSel" aria-label="Store"></select>
         <input name="nm" maxlength="40" autocomplete="name" data-p="rvN" aria-label="Name">
         <div><div class="note" data-t="rvR"></div>
@@ -326,10 +329,15 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
 
 <script>
 /* ===== EDIT HERE ===== */
-/* 0) FIREBASE REVIEWS. Paste your config between the braces, e.g.
-   var FIREBASE_CONFIG={apiKey:"...",authDomain:"...",projectId:"...",storageBucket:"...",messagingSenderId:"...",appId:"..."};
-   While it is null, the page shows 2 SAMPLE reviews (preview mode only). */
-var FIREBASE_CONFIG=null;
+/* 0) FIREBASE REVIEWS + GOOGLE LOGIN. While this is null, the page shows 2 SAMPLE reviews (preview only). */
+var FIREBASE_CONFIG={
+  apiKey:"AIzaSyDQAjybZD5uAnVYNa7lWQpj3LO9TbrQm_k",
+  authDomain:"shopping-guide-bd.firebaseapp.com",
+  projectId:"shopping-guide-bd",
+  storageBucket:"shopping-guide-bd.firebasestorage.app",
+  messagingSenderId:"34048925062",
+  appId:"1:34048925062:web:e83b72c90ba609e19aa007"
+};
 
 /* 1) Campaign banner. After "end" passes it switches to "Daily deals on Telegram". Set CAMPAIGN=null to hide. */
 var CAMPAIGN={
@@ -434,8 +442,8 @@ var DEMO=[
 ];
 /* ===================== */
 var T={
-en:{nvG:"Guide",nvS:"Stores",nvC:"Coupons",nvR:"Reviews",nvJ:"Community",join:"Join now",brandsub:"Online shopping guide",h1a:"Shop Smart.",h1b:"Save More.",lead:"Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.",seeGuide:"How to grab the deals ↓",tipL:"Tip of the day",gH:"Smart shopping in 6 steps",gS:"Follow this checklist for every online order. It takes two minutes and can save you money and trouble.",rfH:"Real deal or fake discount?",rfS:"Quick signs to check before you pay.",gdH:"Good signs",bdH:"Red flags",safeH:"Stay safe from scams",safeS:"Simple habits that protect your money and accounts.",stH:"Where to shop in Bangladesh",stS:"Compare before you buy. Tap a store to see current deals.",shop:"Shop deals",cpH:"Coupons & vouchers",cpS:"Copy a code and apply it at checkout. Check the shop’s terms before you pay.",cpCopy:"Copy",cpCopied:"Code copied",cpShop:"Shop now",cpExp:"Expires",cpExpired:"Expired",rvH:"Shopper reviews",rvS:"Tell us which store you used and how it went. Reviews appear after a quick check.",rvN:"Your name",rvT:"Your review (max 500 characters)",rvR:"Your rating",rvSend:"Submit review",rvOk:"Thank you! Your review will appear after approval.",rvWait:"Please wait a minute before posting again.",rvErr:"Could not send. Please try again later.",rvNo:"Please add your name, a rating and a review.",rvLink:"Links are not allowed in reviews.",rvEmpty:"No reviews yet. Be the first!",rvCnt:"reviews",rvDemo:"Preview mode: sample reviews. Connect Firebase to show real ones.",joinH:"Join the community",joinS:"Join one channel and get every new deal first. Flash sales end in hours.",visit:"Visit site",follow:"Follow",watch:"Watch",wH:"About this guide",w1:"Shopping Guide BD is an independent guide. We don’t sell anything.",w2:"We update this page when a new sale or campaign starts.",w3:"Prices, stock and offers change fast. Check the final price and terms in the shop’s app before you pay.",agH:"New deals every day. Come back daily.",agS:"Bookmark this page and join a channel so you never miss a flash sale.",addHome:"Add to home screen",homeHow:"Open your browser menu and tap “Add to Home screen”.",share:"Share with friends",copied:"Link copied",recH:"Recommended stores",disc:"We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.",pvH:"Privacy & terms",pv1:"We use Google Analytics and Microsoft Clarity to understand how the site is used. The name and comment you put in a review are stored and shown publicly after approval. Do not post phone numbers or personal details.",pv2:"Reviews are the opinions of visitors, and we may remove any review. We never ask for OTPs, passwords or advance payments.",live:"Live now",fbT:"Daily deals on Telegram",fbS:"Join the channel to get new offers and vouchers first.",fbB:"Join on Telegram",campBtn:"See the 11.11 sale",sLive:"is live",sOpen:"See offers",dd:"days",hh:"hrs",mm:"min",ss:"sec",lang:"বাং",tagT:"New deals every day!",all:"All",gen:"Shopping Guide BD (this website)",best:"Top rated",rvW:"Review the shopping experience only. Do not post personal details."},
-bn:{nvG:"গাইড",nvS:"স্টোর",nvC:"কুপন",nvR:"রিভিউ",nvJ:"কমিউনিটি",join:"যোগ দিন",brandsub:"অনলাইন শপিং গাইড",h1a:"স্মার্ট শপিং।",h1b:"বেশি সাশ্রয়।",lead:"বাংলাদেশে অনলাইনে কেনাকাটার ফ্রি গাইড: আসল ডিল চিনুন, শপ তুলনা করুন, নিরাপদে পেমেন্ট করুন, প্রতারণা এড়ান।",seeGuide:"ডিল ধরার নিয়ম ↓",tipL:"আজকের টিপ",gH:"স্মার্ট কেনাকাটার ৬ ধাপ",gS:"প্রতিটি অনলাইন অর্ডারে এই চেকলিস্ট মেনে চলুন। দুই মিনিট লাগে, টাকা ও ঝামেলা দুটোই বাঁচে।",rfH:"আসল ডিল নাকি নকল ছাড়?",rfS:"পেমেন্টের আগে দ্রুত দেখে নিন।",gdH:"ভালো লক্ষণ",bdH:"সতর্ক সংকেত",safeH:"প্রতারণা থেকে সাবধান",safeS:"সহজ কিছু অভ্যাস আপনার টাকা ও অ্যাকাউন্ট নিরাপদ রাখে।",stH:"বাংলাদেশে কোথায় কিনবেন",stS:"কেনার আগে তুলনা করুন। স্টোরে ট্যাপ করে চলমান ডিল দেখুন।",shop:"ডিল দেখুন",cpH:"কুপন ও ভাউচার",cpS:"কোড কপি করে চেকআউটে ব্যবহার করুন। পেমেন্টের আগে শপের শর্ত দেখে নিন।",cpCopy:"কপি",cpCopied:"কোড কপি হয়েছে",cpShop:"কিনুন",cpExp:"মেয়াদ",cpExpired:"মেয়াদ শেষ",rvH:"ক্রেতাদের রিভিউ",rvS:"কোন শপ থেকে কিনেছেন ও অভিজ্ঞতা কেমন, জানান। যাচাইয়ের পর রিভিউ প্রকাশ হবে।",rvN:"আপনার নাম",rvT:"আপনার রিভিউ (সর্বোচ্চ ৫০০ অক্ষর)",rvR:"আপনার রেটিং",rvSend:"রিভিউ পাঠান",rvOk:"ধন্যবাদ! অনুমোদনের পর আপনার রিভিউ প্রকাশ হবে।",rvWait:"আবার পোস্ট করতে এক মিনিট অপেক্ষা করুন।",rvErr:"পাঠানো যায়নি। পরে আবার চেষ্টা করুন।",rvNo:"নাম, রেটিং ও রিভিউ দিন।",rvLink:"রিভিউতে লিংক দেওয়া যাবে না।",rvEmpty:"এখনও কোনো রিভিউ নেই। প্রথম রিভিউ আপনার হোক!",rvCnt:"টি রিভিউ",rvDemo:"প্রিভিউ মোড: নমুনা রিভিউ। Firebase যুক্ত করলে আসল রিভিউ দেখাবে।",joinH:"কমিউনিটিতে যোগ দিন",joinS:"যেকোনো একটি চ্যানেলে যোগ দিন, নতুন ডিল সবার আগে পান। ফ্ল্যাশ সেল কয়েক ঘণ্টায় শেষ হয়।",visit:"সাইটে যান",follow:"ফলো করুন",watch:"দেখুন",wH:"এই গাইড সম্পর্কে",w1:"শপিং গাইড বিডি একটি স্বাধীন গাইড। আমরা কিছু বিক্রি করি না।",w2:"নতুন সেল বা ক্যাম্পেইন শুরু হলে আমরা এই পাতা আপডেট করি।",w3:"দাম, স্টক ও অফার দ্রুত বদলায়। পেমেন্টের আগে শপের অ্যাপে চূড়ান্ত দাম ও শর্ত দেখে নিন।",agH:"রোজ নতুন ডিল। রোজ একবার ঘুরে যান।",agS:"এই পাতা বুকমার্ক করুন এবং চ্যানেলে যোগ দিন, কোনো ফ্ল্যাশ সেল মিস করবেন না।",addHome:"হোম স্ক্রিনে যোগ করুন",homeHow:"ব্রাউজারের মেনু খুলে “Add to Home screen” চাপুন।",share:"বন্ধুদের সাথে শেয়ার করুন",copied:"লিংক কপি হয়েছে",recH:"সুপারিশকৃত স্টোর",disc:"আমরা একটি শপিং গাইড, দোকান নই। আমরা অনলাইন শপের লিংক দিই এবং এতে আপনার বাড়তি খরচ ছাড়াই সামান্য কমিশন পেতে পারি।",pvH:"প্রাইভেসি ও শর্ত",pv1:"সাইট কেমন ব্যবহার হচ্ছে বুঝতে আমরা Google Analytics ও Microsoft Clarity ব্যবহার করি। রিভিউতে দেওয়া নাম ও মন্তব্য সংরক্ষণ করা হয় এবং অনুমোদনের পর সবার কাছে দেখানো হয়। ফোন নম্বর বা ব্যক্তিগত তথ্য লিখবেন না।",pv2:"রিভিউ ক্রেতাদের নিজস্ব মত। আমরা যেকোনো রিভিউ সরিয়ে দিতে পারি। আমরা কখনও OTP, পাসওয়ার্ড বা অগ্রিম পেমেন্ট চাই না।",live:"এখন চলছে",fbT:"প্রতিদিনের ডিল টেলিগ্রামে",fbS:"নতুন অফার ও ভাউচার সবার আগে পেতে চ্যানেলে যোগ দিন।",fbB:"টেলিগ্রামে যোগ দিন",campBtn:"১১.১১ সেল দেখুন",sLive:"চলছে",sOpen:"ডিল দেখুন",dd:"দিন",hh:"ঘণ্টা",mm:"মিনিট",ss:"সেকেন্ড",lang:"EN",tagT:"প্রতিদিন নতুন ডিল!",all:"সব",gen:"শপিং গাইড বিডি (এই ওয়েবসাইট)",best:"সেরা রেটিং",rvW:"শুধু কেনাকাটার অভিজ্ঞতা লিখুন। ব্যক্তিগত তথ্য দেবেন না।"}
+en:{nvG:"Guide",nvS:"Stores",nvC:"Coupons",nvR:"Reviews",nvJ:"Community",join:"Join now",brandsub:"Online shopping guide",h1a:"Shop Smart.",h1b:"Save More.",lead:"Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.",seeGuide:"How to grab the deals ↓",tipL:"Tip of the day",gH:"Smart shopping in 6 steps",gS:"Follow this checklist for every online order. It takes two minutes and can save you money and trouble.",rfH:"Real deal or fake discount?",rfS:"Quick signs to check before you pay.",gdH:"Good signs",bdH:"Red flags",safeH:"Stay safe from scams",safeS:"Simple habits that protect your money and accounts.",stH:"Where to shop in Bangladesh",stS:"Compare before you buy. Tap a store to see current deals.",shop:"Shop deals",cpH:"Coupons & vouchers",cpS:"Copy a code and apply it at checkout. Check the shop’s terms before you pay.",cpCopy:"Copy",cpCopied:"Code copied",cpShop:"Shop now",cpExp:"Expires",cpExpired:"Expired",rvH:"Shopper reviews",rvS:"Tell us which store you used and how it went. Reviews appear after a quick check.",rvN:"Your name",rvT:"Your review (max 500 characters)",rvR:"Your rating",rvSend:"Submit review",rvOk:"Thank you! Your review will appear after approval.",rvWait:"Please wait a minute before posting again.",rvErr:"Could not send. Please try again later.",rvNo:"Please add your name, a rating and a review.",rvLink:"Links are not allowed in reviews.",rvEmpty:"No reviews yet. Be the first!",rvCnt:"reviews",rvDemo:"Preview mode: sample reviews. Connect Firebase to show real ones.",joinH:"Join the community",joinS:"Join one channel and get every new deal first. Flash sales end in hours.",visit:"Visit site",follow:"Follow",watch:"Watch",wH:"About this guide",w1:"Shopping Guide BD is an independent guide. We don’t sell anything.",w2:"We update this page when a new sale or campaign starts.",w3:"Prices, stock and offers change fast. Check the final price and terms in the shop’s app before you pay.",agH:"New deals every day. Come back daily.",agS:"Bookmark this page and join a channel so you never miss a flash sale.",addHome:"Add to home screen",homeHow:"Open your browser menu and tap “Add to Home screen”.",share:"Share with friends",copied:"Link copied",recH:"Recommended stores",disc:"We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.",pvH:"Privacy & terms",pv1:"We use Google Analytics and Microsoft Clarity to understand how the site is used. To post a review you sign in with Google. The name you enter, your review and an anonymous sign-in ID are stored, and the name and review are shown publicly after approval. Do not post phone numbers or personal details.",pv2:"Reviews are the opinions of visitors, and we may remove any review. We never ask for OTPs, passwords or advance payments.",live:"Live now",fbT:"Daily deals on Telegram",fbS:"Join the channel to get new offers and vouchers first.",fbB:"Join on Telegram",campBtn:"See the 11.11 sale",sLive:"is live",sOpen:"See offers",dd:"days",hh:"hrs",mm:"min",ss:"sec",lang:"বাং",tagT:"New deals every day!",all:"All",gen:"Shopping Guide BD (this website)",best:"Top rated",rvW:"Review the shopping experience only. Do not post personal details.",siIn:"Sign in with Google",siOut:"Sign out",siNote:"Sign in to post a review.",siNeed:"Please sign in first."},
+bn:{nvG:"গাইড",nvS:"স্টোর",nvC:"কুপন",nvR:"রিভিউ",nvJ:"কমিউনিটি",join:"যোগ দিন",brandsub:"অনলাইন শপিং গাইড",h1a:"স্মার্ট শপিং।",h1b:"বেশি সাশ্রয়।",lead:"বাংলাদেশে অনলাইনে কেনাকাটার ফ্রি গাইড: আসল ডিল চিনুন, শপ তুলনা করুন, নিরাপদে পেমেন্ট করুন, প্রতারণা এড়ান।",seeGuide:"ডিল ধরার নিয়ম ↓",tipL:"আজকের টিপ",gH:"স্মার্ট কেনাকাটার ৬ ধাপ",gS:"প্রতিটি অনলাইন অর্ডারে এই চেকলিস্ট মেনে চলুন। দুই মিনিট লাগে, টাকা ও ঝামেলা দুটোই বাঁচে।",rfH:"আসল ডিল নাকি নকল ছাড়?",rfS:"পেমেন্টের আগে দ্রুত দেখে নিন।",gdH:"ভালো লক্ষণ",bdH:"সতর্ক সংকেত",safeH:"প্রতারণা থেকে সাবধান",safeS:"সহজ কিছু অভ্যাস আপনার টাকা ও অ্যাকাউন্ট নিরাপদ রাখে।",stH:"বাংলাদেশে কোথায় কিনবেন",stS:"কেনার আগে তুলনা করুন। স্টোরে ট্যাপ করে চলমান ডিল দেখুন।",shop:"ডিল দেখুন",cpH:"কুপন ও ভাউচার",cpS:"কোড কপি করে চেকআউটে ব্যবহার করুন। পেমেন্টের আগে শপের শর্ত দেখে নিন।",cpCopy:"কপি",cpCopied:"কোড কপি হয়েছে",cpShop:"কিনুন",cpExp:"মেয়াদ",cpExpired:"মেয়াদ শেষ",rvH:"ক্রেতাদের রিভিউ",rvS:"কোন শপ থেকে কিনেছেন ও অভিজ্ঞতা কেমন, জানান। যাচাইয়ের পর রিভিউ প্রকাশ হবে।",rvN:"আপনার নাম",rvT:"আপনার রিভিউ (সর্বোচ্চ ৫০০ অক্ষর)",rvR:"আপনার রেটিং",rvSend:"রিভিউ পাঠান",rvOk:"ধন্যবাদ! অনুমোদনের পর আপনার রিভিউ প্রকাশ হবে।",rvWait:"আবার পোস্ট করতে এক মিনিট অপেক্ষা করুন।",rvErr:"পাঠানো যায়নি। পরে আবার চেষ্টা করুন।",rvNo:"নাম, রেটিং ও রিভিউ দিন।",rvLink:"রিভিউতে লিংক দেওয়া যাবে না।",rvEmpty:"এখনও কোনো রিভিউ নেই। প্রথম রিভিউ আপনার হোক!",rvCnt:"টি রিভিউ",rvDemo:"প্রিভিউ মোড: নমুনা রিভিউ। Firebase যুক্ত করলে আসল রিভিউ দেখাবে।",joinH:"কমিউনিটিতে যোগ দিন",joinS:"যেকোনো একটি চ্যানেলে যোগ দিন, নতুন ডিল সবার আগে পান। ফ্ল্যাশ সেল কয়েক ঘণ্টায় শেষ হয়।",visit:"সাইটে যান",follow:"ফলো করুন",watch:"দেখুন",wH:"এই গাইড সম্পর্কে",w1:"শপিং গাইড বিডি একটি স্বাধীন গাইড। আমরা কিছু বিক্রি করি না।",w2:"নতুন সেল বা ক্যাম্পেইন শুরু হলে আমরা এই পাতা আপডেট করি।",w3:"দাম, স্টক ও অফার দ্রুত বদলায়। পেমেন্টের আগে শপের অ্যাপে চূড়ান্ত দাম ও শর্ত দেখে নিন।",agH:"রোজ নতুন ডিল। রোজ একবার ঘুরে যান।",agS:"এই পাতা বুকমার্ক করুন এবং চ্যানেলে যোগ দিন, কোনো ফ্ল্যাশ সেল মিস করবেন না।",addHome:"হোম স্ক্রিনে যোগ করুন",homeHow:"ব্রাউজারের মেনু খুলে “Add to Home screen” চাপুন।",share:"বন্ধুদের সাথে শেয়ার করুন",copied:"লিংক কপি হয়েছে",recH:"সুপারিশকৃত স্টোর",disc:"আমরা একটি শপিং গাইড, দোকান নই। আমরা অনলাইন শপের লিংক দিই এবং এতে আপনার বাড়তি খরচ ছাড়াই সামান্য কমিশন পেতে পারি।",pvH:"প্রাইভেসি ও শর্ত",pv1:"সাইট কেমন ব্যবহার হচ্ছে বুঝতে আমরা Google Analytics ও Microsoft Clarity ব্যবহার করি। রিভিউ দিতে আপনাকে গুগল দিয়ে সাইন ইন করতে হয়। আপনার দেওয়া নাম, রিভিউ ও একটি বেনামী সাইন-ইন আইডি সংরক্ষণ করা হয়, এবং অনুমোদনের পর নাম ও রিভিউ সবার কাছে দেখানো হয়। ফোন নম্বর বা ব্যক্তিগত তথ্য লিখবেন না।",pv2:"রিভিউ ক্রেতাদের নিজস্ব মত। আমরা যেকোনো রিভিউ সরিয়ে দিতে পারি। আমরা কখনও OTP, পাসওয়ার্ড বা অগ্রিম পেমেন্ট চাই না।",live:"এখন চলছে",fbT:"প্রতিদিনের ডিল টেলিগ্রামে",fbS:"নতুন অফার ও ভাউচার সবার আগে পেতে চ্যানেলে যোগ দিন।",fbB:"টেলিগ্রামে যোগ দিন",campBtn:"১১.১১ সেল দেখুন",sLive:"চলছে",sOpen:"ডিল দেখুন",dd:"দিন",hh:"ঘণ্টা",mm:"মিনিট",ss:"সেকেন্ড",lang:"EN",tagT:"প্রতিদিন নতুন ডিল!",all:"সব",gen:"শপিং গাইড বিডি (এই ওয়েবসাইট)",best:"সেরা রেটিং",rvW:"শুধু কেনাকাটার অভিজ্ঞতা লিখুন। ব্যক্তিগত তথ্য দেবেন না।",siIn:"গুগল দিয়ে সাইন ইন",siOut:"সাইন আউট",siNote:"রিভিউ দিতে সাইন ইন করুন।",siNeed:"আগে সাইন ইন করুন।"}
 };
 var $=function(s){return document.querySelector(s)};
 var lang="en",root=document.documentElement;
@@ -469,7 +477,7 @@ function render(){
   root.lang=lang==="bn"?"bn":"en";$("#lang").textContent=T[lang].lang;
   $("#stores").innerHTML=STORES.map(function(x){
     return'<a class="store" style="--c:'+x.c+'" data-aff="'+esc(x.n)+'" href="'+esc(x.url)+'" target="_blank" rel="noopener sponsored">'+logo(x)+'<span><h3>'+esc(x.n)+'</h3><p>'+x.t[lang]+'</p></span><span class="sl" data-s="'+esc(x.n)+'"></span><em>'+T[lang].shop+'</em></a>'}).join("");
-  renderGuide();renderMini();campaign();renderSocial();renderCoupons();renderRec();renderRv();setRot(true);
+  renderGuide();renderMini();campaign();renderSocial();renderCoupons();renderRec();renderRv();authUI();setRot(true);
 }
 var DESK=matchMedia("(min-width:900px)");
 if(DESK.addEventListener)DESK.addEventListener("change",function(){renderGuide()});
@@ -521,8 +529,8 @@ function renderMini(){
   var lv=LEVELS.filter(function(x){return STREAK>=x.d}).pop(),nx=LEVELS.filter(function(x){return x.d>STREAK})[0],bn=lang==="bn",left=nx?nx.d-STREAK:0;
   e.innerHTML='<b>'+lv.i+' '+lv[lang]+'</b> · '+(bn?'টানা '+num(STREAK)+' দিন':STREAK+'-day streak')+'<small>'+lv.m[lang]+(nx?' '+(bn?num(left)+' দিন পর পাবেন '+nx.i+' '+nx.bn+'।':left+(left>1?' more days':' more day')+' to '+nx.i+' '+nx.en+'.'):'')+'</small>';
 }
-/* ----- Reviews (Firebase Firestore) ----- */
-var cfg=FIREBASE_CONFIG&&FIREBASE_CONFIG.projectId,db=null,RV=cfg?[]:DEMO.slice(),rate=0,FILT="";
+/* ----- Reviews (Firebase Firestore, SDK v8) + Google login ----- */
+var cfg=FIREBASE_CONFIG&&FIREBASE_CONFIG.projectId,db=null,auth=null,USER=null,RV=cfg?[]:DEMO.slice(),rate=0,FILT="";
 function stars(n){return"★★★★★".slice(0,n)+"☆☆☆☆☆".slice(0,5-n)}
 function fillSl(){
   var L=T[lang],best="",bs=0,st={};
@@ -545,20 +553,40 @@ function loadRv(){
     RV=s.docs.map(function(d){var r=d.data();return{name:r.name,rating:Math.min(5,Math.max(1,Math.round(+r.rating||1))),text:r.text,store:String(r.store||"").slice(0,30),t:+r.t||0}}).sort(function(a,b){return b.t-a.t});renderRv()
   }).catch(function(){renderRv()});
 }
-function sdk(u,cb){var s=document.createElement("script");s.src="https://www.gstatic.com/firebasejs/10.12.2/"+u;s.onload=cb;document.head.appendChild(s)}
-if(cfg)sdk("firebase-app-compat.js",function(){sdk("firebase-firestore-compat.js",function(){firebase.initializeApp(FIREBASE_CONFIG);db=firebase.firestore();loadRv()})});
+function authUI(){
+  var b=$("#authBox"),f=$("#rf"),L=T[lang];
+  if(!cfg){b.hidden=true;return}
+  b.hidden=false;
+  if(USER){
+    b.innerHTML='<b>'+esc(USER.displayName||USER.email||"")+'</b><button type="button" class="chip" data-a="out">'+L.siOut+'</button>';
+    if(!f.nm.value)f.nm.value=(USER.displayName||"").slice(0,40);
+  }else{
+    b.innerHTML='<button type="button" class="chip on" data-a="in">'+L.siIn+'</button><span class="note">'+L.siNote+'</span>';
+  }
+}
+$("#authBox").onclick=function(e){
+  var b=e.target.closest("button");if(!b||!auth)return;
+  if(b.dataset.a==="in")auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(function(){toast(T[lang].rvErr)});
+  if(b.dataset.a==="out")auth.signOut();
+};
+function sdk(u,cb){var s=document.createElement("script");s.src="https://www.gstatic.com/firebasejs/8.10.1/"+u;s.onload=cb;document.head.appendChild(s)}
+if(cfg)sdk("firebase-app.js",function(){sdk("firebase-firestore.js",function(){sdk("firebase-auth.js",function(){
+  firebase.initializeApp(FIREBASE_CONFIG);db=firebase.firestore();auth=firebase.auth();loadRv();
+  auth.onAuthStateChanged(function(u){USER=u;authUI()});
+})})});
 function paint(){document.querySelectorAll("#pick button").forEach(function(b){b.classList.toggle("on",+b.dataset.v<=rate)})}
 $("#chips").onclick=function(e){var b=e.target.closest("button");if(!b)return;FILT=b.dataset.f;if(FILT)$("#stSel").value=FILT;renderRv()};
 $("#pick").onclick=function(e){var b=e.target.closest("button");if(!b)return;rate=+b.dataset.v;paint()};
 $("#rf").onsubmit=function(e){
   e.preventDefault();var L=T[lang],f=e.target;
   if(f.hp.value)return;
+  if(cfg&&!USER)return toast(L.siNeed);
   var name=f.nm.value.trim().slice(0,40),text=f.tx.value.trim().slice(0,500);
   if(!name||!text||!rate)return toast(L.rvNo);
   if(/https?:|www\.|t\.me|\.com|\.net|\.xyz|bit\.ly/i.test(name+" "+text))return toast(L.rvLink);
   if(Date.now()-(+load("sg-rv")||0)<60000)return toast(L.rvWait);
-  var r={name:name,text:text,rating:rate,store:f.st.value,approved:false,t:Date.now()},btn=f.querySelector(".go");
-  var done=function(){save("sg-rv",String(Date.now()));f.reset();rate=0;paint();btn.disabled=false;toast(L.rvOk)};
+  var r={name:name,text:text,rating:rate,store:f.st.value,approved:false,t:Date.now(),uid:USER?USER.uid:null},btn=f.querySelector(".go");
+  var done=function(){save("sg-rv",String(Date.now()));f.reset();authUI();rate=0;paint();btn.disabled=false;toast(L.rvOk)};
   btn.disabled=true;
   if(db){db.collection("reviews").add(r).then(done,function(){btn.disabled=false;toast(L.rvErr)})}
   else{RV.unshift({name:name,text:text,rating:rate,store:r.store,t:r.t});renderRv();done()}
