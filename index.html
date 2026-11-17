@@ -19,438 +19,319 @@ gtag('config','G-JJL96PCYP0');
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" type="image/png" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/icon-192.png">
-<meta name="description" content="Shopping Guide BD: a free guide to smart, safe online shopping in Bangladesh. Deal tips, store links and community channels.">
+<meta name="description" content="Shopping Guide BD: a free guide to smart, safe online shopping in Bangladesh. Deal tips, store links, shopper reviews and community channels.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shopping Guide BD – Shop Smart. Save More.">
+<meta property="og:description" content="Free guide to real deals, trusted stores and safe payment in Bangladesh.">
+<!-- Replace with your full address, e.g. https://yourdomain.com/icon-512.png -->
+<meta property="og:image" content="/icon-512.png">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#E8500A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FFF6E5;--card:#FFFFFF;--ink:#1B2A25;--mute:#5E6B66;--line:#E4D9C0;--green:#0E7C5A;--gold:#FFB627;--coral:#F0452A;--onGold:#1B2A25;--shadow:0 6px 0 rgba(27,42,37,.10)}
-:root[data-theme="dark"]{--bg:#0D1815;--card:#16251F;--ink:#F4EFE2;--mute:#9DB0A8;--line:#2A4036;--green:#2DD4A0;--gold:#FFC145;--coral:#FF6B4A;--shadow:0 6px 0 rgba(0,0,0,.35)}
+:root{--bg:#FFF6E5;--card:#fff;--ink:#1B2A25;--mute:#5E6B66;--line:#E4D9C0;--green:#0E7C5A;--gold:#FFB627;--co:#E8500A;--on:#fff;--c1:#F4590C;--c2:#C42B05;--sh:0 1px 2px rgba(27,42,37,.06),0 10px 24px -14px rgba(27,42,37,.35)}
+:root[data-theme=dark]{color-scheme:dark;--bg:#0D1815;--card:#16251F;--ink:#F4EFE2;--mute:#9DB0A8;--line:#26392F;--green:#2DD4A0;--gold:#FFC145;--co:#FF7A33;--on:#1a0c04;--c1:#C2410C;--c2:#8E2204;--sh:0 1px 2px rgba(0,0,0,.4),0 12px 24px -14px rgba(0,0,0,.7)}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{font:400 16px/1.55 "Hind Siliguri",system-ui,sans-serif;background:var(--bg);color:var(--ink);padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);min-height:100vh;transition:background .3s,color .3s}
-body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 1px 1px,var(--line) 1.2px,transparent 1.5px) 0 0/22px 22px;opacity:.7}
-h1,h2,h3,.btn{font-family:"Baloo Da 2","Hind Siliguri",sans-serif}
-.wrap{max-width:520px;margin:0 auto;padding:14px 16px 40px}
+body{font:400 16px/1.55 "Hind Siliguri",system-ui,sans-serif;background:var(--bg);color:var(--ink);padding:env(safe-area-inset-top) 0 calc(84px + env(safe-area-inset-bottom));min-height:100vh;transition:background .3s,color .3s}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 1px 1px,var(--line) 1.2px,transparent 1.5px) 0 0/22px 22px;opacity:.3}
+h1,h2,h3{font-family:"Baloo Da 2","Hind Siliguri",sans-serif}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:10px}
-/* top bar */
-.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+:focus-visible{outline:3px solid var(--co);outline-offset:3px;border-radius:10px}
+[hidden]{display:none!important}
+section{scroll-margin-top:72px}
+.wrap{max-width:520px;margin:0 auto;padding:6px 16px 40px}
+.bar{position:sticky;top:0;z-index:20;padding:10px 16px;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.barin{max-width:520px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .brand{font:800 18px "Baloo Da 2",sans-serif;display:flex;gap:8px;align-items:center}
-.brand span{display:flex;flex-direction:column;line-height:1.05}.brand small{font:500 12px "Hind Siliguri",sans-serif;color:var(--mute)}
-.brand i{width:38px;height:38px;border-radius:11px;background:#F4590C;display:grid;place-items:center;font-style:normal;flex:none}
+.brand span{display:flex;flex-direction:column;line-height:1.05}
+.brand small{font:500 12px "Hind Siliguri",sans-serif;color:var(--mute)}
+.brand i{width:38px;height:38px;border-radius:11px;background:#F4590C;display:grid;place-items:center;flex:none}
 .ctl{display:flex;gap:8px}
-.pill{border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;min-width:44px;height:40px;padding:0 12px;font:600 14px "Hind Siliguri",sans-serif;cursor:pointer;display:grid;place-items:center;box-shadow:0 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
-.pill:active{transform:translateY(3px);box-shadow:none}
-/* hero */
+.pill{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;min-width:44px;height:40px;padding:0 12px;font:600 14px "Hind Siliguri",sans-serif;cursor:pointer;display:grid;place-items:center;transition:transform .1s}
+.pill:active{transform:scale(.95)}
+.nav,.navcta{display:none}
 .hero{position:relative;padding:26px 6px 8px}
 .hero h1{font-size:clamp(40px,12vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.5px;max-width:9em}
-.hero h1 span{display:block;color:var(--green)}
+.hero h1 span{display:block}.hero h1 .a{color:var(--co)}
 .hero p{color:var(--mute);margin-top:12px;max-width:30em}
-.tag{position:absolute;right:2px;top:2px;width:92px;border:0;background:none;cursor:pointer;transform-origin:50% 0;animation:swing 2.6s ease-in-out 1 .6s;color:inherit}
-.tag.go{animation:swing 1.4s ease-in-out 1}
-.tag svg{display:block;width:100%;height:auto;overflow:visible}
-@keyframes swing{0%{transform:rotate(0)}20%{transform:rotate(14deg)}45%{transform:rotate(-10deg)}70%{transform:rotate(5deg)}100%{transform:rotate(0)}}
-.timer{margin:22px 0 6px;background:var(--ink);color:var(--bg);border-radius:18px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.timer b{font:800 22px "Baloo Da 2",sans-serif;font-variant-numeric:tabular-nums;color:var(--gold);letter-spacing:.5px}
-.timer small{font-size:13px;opacity:.85}
-/* section heads */
-h2{font-size:24px;font-weight:800;margin:30px 0 4px}
-.sub{color:var(--mute);font-size:14px;margin-bottom:14px}
-/* ticket cards */
-.tickets{display:grid;gap:14px}
-.ticket{position:relative;display:flex;align-items:stretch;background:var(--card);border:2px solid var(--ink);border-radius:18px;box-shadow:var(--shadow);transition:transform .12s}
-.ticket:active{transform:translateY(3px)}
-.ticket .ic{width:76px;flex:none;display:grid;place-items:center;border-radius:16px 0 0 16px;color:#fff}
-.ticket .ic svg{width:34px;height:34px;fill:currentColor}
-.ticket .tx{flex:1;padding:12px 14px;border-left:2px dashed var(--ink);min-width:0}
-.ticket .tx h3{font-size:18px;font-weight:800;line-height:1.2}
-.ticket .tx p{font-size:13.5px;color:var(--mute);line-height:1.35;margin-top:2px}
-.ticket .go{display:inline-block;margin-top:8px;font:800 14px "Baloo Da 2",sans-serif;color:var(--coral)}
-.ticket::before,.ticket::after{content:"";position:absolute;left:66px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--ink)}
-.ticket::before{top:-11px;clip-path:inset(50% 0 0 0)}
-.ticket::after{bottom:-11px;clip-path:inset(0 0 50% 0)}
-.ticket.main{background:var(--gold);color:var(--onGold)}
-.ticket.main .tx p{color:#3d3a20}.ticket.main .go{color:var(--onGold)}
-.wa{background:#25D366}.tg{background:#229ED9}.tg2{background:#0B6FA4}.fb{background:#1877F2}.yt{background:#E02B20}.web{background:var(--green)}
-/* campaign */
-.camp{margin:22px 0 4px;background:var(--coral);color:#fff;border:2px solid var(--ink);border-radius:22px;box-shadow:var(--shadow);padding:16px 16px 18px;position:relative;overflow:hidden}
-.camp small{font:600 13px "Hind Siliguri",sans-serif;background:#fff;color:var(--ink);border-radius:999px;padding:1px 10px;display:inline-block}
-.camp .ct{font:800 30px/1.05 "Baloo Da 2",sans-serif;margin:8px 0 2px}
-.camp p{font-size:14.5px;opacity:.95;max-width:26em}
-.cd{display:flex;gap:8px;margin:12px 0 4px}
-.cd div{background:rgba(0,0,0,.28);border-radius:12px;min-width:58px;padding:4px 6px;text-align:center}
-.cd b{display:block;font:800 24px/1.1 "Baloo Da 2",sans-serif;font-variant-numeric:tabular-nums}
+.rot{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 14px 5px 12px;font:600 13.5px "Hind Siliguri",sans-serif;box-shadow:var(--sh)}
+.rot .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none;animation:pulse 2s infinite}
+.rt{display:inline-block;min-width:11em;transition:opacity .35s,transform .35s}.rt.out{opacity:0;transform:translateY(-6px)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(14,124,90,.45)}70%{box-shadow:0 0 0 8px rgba(14,124,90,0)}100%{box-shadow:0 0 0 0 rgba(14,124,90,0)}}
+.streak{display:inline-block;max-width:100%;margin-top:12px;background:color-mix(in srgb,var(--co) 13%,transparent);color:var(--co);border-radius:16px;padding:6px 14px;font-size:13.5px;font-weight:600;line-height:1.4}
+.streak small{display:block;font-weight:500;font-size:12.5px;opacity:.9}
+.camp{margin-top:18px;color:#fff;border-radius:22px;padding:16px;background:radial-gradient(circle at 90% 10%,rgba(255,255,255,.2) 0 64px,transparent 65px),radial-gradient(circle at 105% 105%,rgba(255,255,255,.12) 0 140px,transparent 141px),linear-gradient(135deg,var(--c1),var(--c2))}
+.camp small{font:600 13px "Hind Siliguri",sans-serif;background:rgba(255,255,255,.95);color:#1B2A25;border-radius:999px;padding:1px 10px;display:inline-block}
+.camp .ct{font:800 26px/1.05 "Baloo Da 2",sans-serif;margin:6px 0 0}
+.camp p{font-size:14px;opacity:.95;max-width:26em}
+.cd{display:flex;gap:8px;margin:10px 0 2px}
+.cd div{background:rgba(0,0,0,.22);border-radius:12px;min-width:50px;padding:3px 6px;text-align:center}
+.cd b{display:block;font:800 20px/1.1 "Baloo Da 2",sans-serif;font-variant-numeric:tabular-nums}
 .cd span{font-size:11.5px;opacity:.9}
-.cbtn{display:block;margin-top:12px;text-align:center;background:var(--gold);color:#1B2A25;border:2px solid #1B2A25;border-radius:14px;padding:8px;font:800 18px "Baloo Da 2",sans-serif;box-shadow:0 4px 0 #1B2A25}
-.cbtn:active{transform:translateY(4px);box-shadow:none}
-/* stores */
-.stores{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.store{background:var(--card);border:2px solid var(--ink);border-radius:18px;box-shadow:var(--shadow);padding:14px 12px 12px;display:flex;flex-direction:column;gap:8px;transition:transform .12s}
-.store:active{transform:translateY(3px)}
-.store:last-child:nth-child(odd){grid-column:span 2;flex-direction:row;align-items:center}
-.mono{width:48px;height:48px;border-radius:14px;background:var(--c);color:#fff;display:grid;place-items:center;font:800 26px "Baloo Da 2",sans-serif;flex:none}
-.store h3{font-size:19px;font-weight:800;line-height:1.1}
-.store p{font-size:13px;color:var(--mute);line-height:1.3}
-.store em{font:800 14px "Baloo Da 2",sans-serif;color:var(--coral);font-style:normal;margin-top:auto}
-.store:last-child:nth-child(odd) em{margin:0 0 0 auto}
-/* footer */
-.share{width:100%;margin-top:26px;height:50px;font-size:17px}
-footer{margin-top:28px;text-align:center;color:var(--mute);font-size:12.5px}
-.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,40px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;font-size:14px;z-index:9}
-.toast.on{transform:translate(-50%,0);opacity:1}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-/* polish */
-:root{--coral:#E8500A;--camp:#E8500A;--shadow:0 1px 2px rgba(27,42,37,.06),0 10px 24px -14px rgba(27,42,37,.35)}
-:root[data-theme="dark"]{--coral:#FF7A33;--camp:#B93A06;--line:#26392F;--shadow:0 1px 2px rgba(0,0,0,.4),0 12px 24px -14px rgba(0,0,0,.7)}
-body::before{opacity:.3}
-.bar{position:sticky;top:0;z-index:5;margin:-14px -16px 6px;padding:10px 16px;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.pill{border:1px solid var(--line);box-shadow:none}
-.pill:active{transform:scale(.95)}
-.hero h1 span{color:var(--coral)}
-h2{font-size:22px;margin:34px 0 2px}
-.ticket,.store{border:1px solid var(--line);box-shadow:var(--shadow)}
-.ticket:active,.store:active{transform:scale(.985)}
-.ticket .ic{border-radius:17px 0 0 17px}
-.ticket .tx{border-left:1.5px dashed var(--line)}
-.ticket::before,.ticket::after{border:1px solid var(--line)}
-.ticket.main{background:var(--card);color:var(--ink)}
-.ticket.main .tx p{color:var(--mute)}
-.ticket .go,.ticket.main .go{color:var(--coral)}
-.camp{border:0;background:var(--camp);color:#fff}
-.camp small{background:rgba(255,255,255,.95)}
-.cd div{background:rgba(0,0,0,.22)}
-.cbtn{background:#fff;color:#1B2A25;border:0;box-shadow:none;border-radius:12px;padding:10px}
+.cbtn{display:block;margin-top:10px;text-align:center;background:#fff;color:#1B2A25;border-radius:12px;padding:8px;font:800 16px "Baloo Da 2",sans-serif}
 .cbtn:active{transform:scale(.98)}
-.mono{border-radius:12px}
-.store em{align-self:flex-start;background:var(--coral);color:#fff;border-radius:999px;padding:1px 14px}
-:root[data-theme="dark"] .store em{color:#1a0c04}
-.store:last-child:nth-child(odd) em{align-self:center}
-:focus-visible{outline-color:var(--coral)}
-/* guide */
-[hidden]{display:none!important}
-.camp .l2{display:block;margin-top:10px;text-align:center;color:#fff;text-decoration:underline;font-size:14.5px;font-weight:600}
-.sh{font:800 17px "Baloo Da 2",sans-serif;margin:22px 0 8px}
-.clinks{display:grid;gap:8px}
-.cl{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow)}
-.cl:active{transform:scale(.985)}
-.cl b{font:800 16px "Baloo Da 2",sans-serif;display:block;line-height:1.2}
-.cl small{color:var(--mute);font-size:13px}
-.cl i{font-style:normal;color:var(--coral);font-size:20px;font-weight:700}
-.tl{border-left:2px solid var(--line);margin-left:6px}
-.tli{position:relative;padding:2px 0 14px 18px}
-.tli::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--bg)}
-.tli.done{opacity:.55}.tli.done::before{background:var(--mute)}
-.tli b{font:800 15px "Baloo Da 2",sans-serif;display:block;line-height:1.3}
-.tli span{color:var(--mute);font-size:14px}
+.l2{display:block;margin-top:10px;text-align:center;text-decoration:underline;font-size:14.5px;font-weight:600}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 14px;box-shadow:var(--sh);margin-top:14px}
+.mini small{font:800 12.5px "Baloo Da 2",sans-serif;color:var(--co);text-transform:uppercase;letter-spacing:.5px}
+.mini p{font-size:13.5px;line-height:1.45;margin-top:4px}
+h2{font-size:22px;font-weight:800;margin:34px 0 2px;position:relative;padding-bottom:10px}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;border-radius:4px;background:var(--co)}
+.sub{color:var(--mute);font-size:14px;margin:8px 0 14px}
 .acc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;overflow:hidden}
 .acc summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center;padding:10px 14px;font-weight:600;min-height:48px}
 .acc summary::-webkit-details-marker{display:none}
-.acc summary::after{content:"+";margin-left:auto;font-size:22px;color:var(--coral)}
+.acc summary::after{content:"+";margin-left:auto;font-size:22px;color:var(--co)}
 .acc[open] summary::after{content:"–"}
-.acc em{font:800 14px "Baloo Da 2",sans-serif;font-style:normal;background:var(--coral);color:#fff;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;flex:none}
-:root[data-theme="dark"] .acc em{color:#1a0c04}
+.acc em{font:800 14px "Baloo Da 2",sans-serif;font-style:normal;background:var(--co);color:var(--on);border-radius:50%;width:26px;height:26px;display:grid;place-items:center;flex:none}
 .acc p{padding:0 14px 14px 50px;color:var(--mute);font-size:14.5px}
-.know{list-style:none;padding:0;display:grid;gap:8px}
-.know li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--coral);border-radius:12px;padding:10px 14px;font-size:14.5px}
-.trust{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
-.trust ul{padding-left:20px;display:grid;gap:8px;color:var(--mute);font-size:14.5px}
-.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:496px;margin:0 auto;z-index:8;background:var(--ink);color:var(--bg);border-radius:16px;padding:8px 8px 8px 16px;display:flex;align-items:center;gap:10px;justify-content:space-between;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-.sticky span{font-weight:600;font-size:15px;line-height:1.3}
-.sticky a{background:var(--coral);color:#fff;border-radius:11px;padding:8px 16px;font:800 15px "Baloo Da 2",sans-serif;white-space:nowrap}
-:root[data-theme="dark"] .sticky a{color:#1a0c04}
-body{padding-bottom:84px}
-.toast{bottom:calc(88px + env(safe-area-inset-bottom))}
-/* v3 */
-.chip2{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:600;margin-bottom:10px}
-.streak{display:inline-block;margin-top:12px;background:color-mix(in srgb,var(--coral) 13%,transparent);color:var(--coral);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:600}
-.camp{background:radial-gradient(circle at 90% 10%,rgba(255,255,255,.22) 0 64px,transparent 65px),radial-gradient(circle at 105% 105%,rgba(255,255,255,.13) 0 140px,transparent 141px),linear-gradient(135deg,#F4590C,#C42B05);padding:20px 18px 18px;border-radius:26px}
-:root[data-theme="dark"] .camp{background:radial-gradient(circle at 90% 10%,rgba(255,255,255,.14) 0 64px,transparent 65px),radial-gradient(circle at 105% 105%,rgba(255,255,255,.08) 0 140px,transparent 141px),linear-gradient(135deg,#C2410C,#8E2204)}
-.camp .ct{font-size:34px}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-.mini{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 14px;box-shadow:var(--shadow)}
-.mini small{font:800 12.5px "Baloo Da 2",sans-serif;color:var(--coral);text-transform:uppercase;letter-spacing:.5px}
-.mini p{font-size:13.5px;line-height:1.45;margin-top:4px}
-.mini ul{list-style:none;padding:0;margin-top:4px;display:grid;gap:6px}
-.mini li{display:flex;justify-content:space-between;flex-wrap:wrap;gap:0 6px;font-size:13px;line-height:1.35}
-.mini li b{font-weight:600}.mini li span{color:var(--mute)}
-.mini li.on span{color:var(--coral);font-weight:700}
-.mini .fine{font-size:11.5px;color:var(--mute);margin-top:8px}
-.again{margin-top:30px;background:var(--ink);color:var(--bg);border-radius:24px;padding:20px 18px}
-.again h2{margin:0 0 4px;color:var(--bg)}
-.again p{opacity:.85;font-size:14.5px;margin-bottom:14px}
-.agb{display:flex;gap:10px}
-.again .pill,.again .share{flex:1;width:auto;margin-top:0;height:48px;font-size:15px;background:var(--coral);color:#fff;border:0}
-:root[data-theme="dark"] .again .pill{color:#1a0c04}
-/* v4: guide first, slim sale banner */
-.camp{padding:14px 16px;border-radius:22px;margin-top:18px}
-.camp .ct{font-size:26px;margin:6px 0 0}
-.camp p{font-size:14px}
-.cd{margin:10px 0 2px}.cd div{min-width:50px;padding:3px 6px}.cd b{font-size:20px}
-.cbtn{margin-top:10px;font-size:16px;padding:8px}
-.acc .inner{padding:0 14px 14px}
 .flags{display:grid;gap:10px}
-.flag{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow)}
+.flag{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--sh)}
 .flag h3{font:800 16px "Baloo Da 2",sans-serif;margin-bottom:6px}
 .flag ul{list-style:none;padding:0;display:grid;gap:6px;font-size:14.5px}
 .flag li{padding-left:24px;position:relative;line-height:1.4}
 .flag li::before{position:absolute;left:0;font-weight:800}
 .good h3,.good li::before{color:#14804A}.good li::before{content:"✓"}
 .bad h3,.bad li::before{color:#C62828}.bad li::before{content:"✕"}
-:root[data-theme="dark"] .good h3,:root[data-theme="dark"] .good li::before{color:#4ADE98}
-:root[data-theme="dark"] .bad h3,:root[data-theme="dark"] .bad li::before{color:#FF8A80}
-.mono.lg{background:#fff;border:1px solid var(--line)}
-.mono img{width:34px;height:34px;object-fit:contain;border-radius:6px}
-
-/* v5: app layout, desktop, community, coupons */
-.bar{position:sticky;top:0;z-index:20;margin:0;padding:10px 16px}
-.barin{max-width:520px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.nav{display:none}
-.wrap{padding-top:6px}
-section{scroll-margin-top:72px}
-.rot{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 14px 5px 12px;font:600 13.5px "Hind Siliguri",sans-serif;color:var(--ink);box-shadow:var(--shadow)}
-.rot .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none;animation:pulse 2s infinite}
-.rt{display:inline-block;min-width:11em;transition:opacity .35s,transform .35s}
-.rt.out{opacity:0;transform:translateY(-6px)}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(14,124,90,.45)}70%{box-shadow:0 0 0 8px rgba(14,124,90,0)}100%{box-shadow:0 0 0 0 rgba(14,124,90,0)}}
-.tipbar{margin-top:14px}
-.g2>div>h2:first-child{margin-top:26px}
-/* community */
-.socs{display:grid;gap:10px}
-.soc{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);transition:transform .15s,border-color .2s}
+[data-theme=dark] .good h3,[data-theme=dark] .good li::before{color:#4ADE98}
+[data-theme=dark] .bad h3,[data-theme=dark] .bad li::before{color:#FF8A80}
+.know{list-style:none;padding:0;display:grid;gap:8px}
+.know li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--co);border-radius:12px;padding:10px 14px;font-size:14.5px}
+.stores{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.store{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:14px 12px 12px;display:flex;flex-direction:column;gap:8px;transition:transform .12s,border-color .2s}
+.store:first-child{border-color:var(--co)}
+.store:active{transform:scale(.985)}
+.mono{width:48px;height:48px;border-radius:12px;background:var(--c);color:#fff;display:grid;place-items:center;font:800 26px "Baloo Da 2",sans-serif;flex:none}
+.mono.lg{background:#fff;border:1px solid var(--line)}.mono img{width:34px;height:34px;object-fit:contain;border-radius:6px}
+.store h3{font-size:19px;font-weight:800;line-height:1.1}
+.store p{font-size:13px;color:var(--mute);line-height:1.3}
+.store em{font:800 14px "Baloo Da 2",sans-serif;font-style:normal;margin-top:auto;align-self:flex-start;background:var(--co);color:var(--on);border-radius:999px;padding:1px 14px}
+.cps,.socs{display:grid;gap:12px}
+.cp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--sh);display:grid;gap:8px}
+.cp h3{font:800 17px "Baloo Da 2",sans-serif}
+.cr{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px dashed var(--line);border-radius:12px;padding:6px 6px 6px 12px}
+.cp code{font:700 16px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.8px;word-break:break-all}
+.cc{border:0;background:var(--co);color:var(--on);border-radius:9px;padding:6px 14px;font:800 14px "Baloo Da 2",sans-serif;cursor:pointer}
+.mt{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute)}
+.mt a{color:var(--co);font:800 14px "Baloo Da 2",sans-serif}
+.cp.ex{opacity:.5}.cp.ex .cc{background:var(--mute);pointer-events:none}
+.soc{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--sh);transition:transform .15s}
 .soc:active{transform:scale(.985)}
 .si{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;flex:none;background:var(--c)}
 .si svg{width:24px;height:24px;fill:currentColor}
 .st b{display:block;font:800 17px/1.15 "Baloo Da 2",sans-serif}
 .st small{color:var(--mute);font-size:13px}
-.soc em{margin-left:auto;font:800 14px "Baloo Da 2",sans-serif;font-style:normal;color:var(--coral)}
-/* coupons */
-.cps{display:grid;gap:12px}
-.cp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow);display:grid;gap:8px}
-.cp h3{font:800 17px "Baloo Da 2",sans-serif;line-height:1.2}
-.cp .of{font-size:14.5px}
-.cp .cr{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px dashed var(--line);border-radius:12px;padding:6px 6px 6px 12px}
-.cp code{font:700 16px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.8px;word-break:break-all}
-.cp .cc{border:0;background:var(--coral);color:#fff;border-radius:9px;padding:6px 14px;font:800 14px "Baloo Da 2",sans-serif;cursor:pointer}
-:root[data-theme="dark"] .cp .cc{color:#1a0c04}
-.cp .mt{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute)}
-.cp .mt a{color:var(--coral);font:800 14px "Baloo Da 2",sans-serif}
-.cp.ex{opacity:.5}.cp.ex .cc{background:var(--mute);pointer-events:none}
-/* footer */
-footer{padding-top:6px}
-footer p{margin-top:6px}
-.rec,.rec a{font-size:12px;color:var(--mute)}
-.rec a{text-decoration:none;opacity:.85}.rec a:hover{text-decoration:underline}
-.disc{font-size:12px}
-@media (hover:hover){.soc:hover,.store:hover,.cp:hover{transform:translateY(-3px);border-color:var(--coral)}}
-/* ===== Desktop / tablet ===== */
-@media (min-width:900px){
-  body{font-size:17px;padding-bottom:40px}
-  .bar{padding:12px 32px}
-  .barin{max-width:1180px}
-  .brand{font-size:20px}
-  .nav{display:flex;gap:4px;margin-left:auto;margin-right:16px}
-  .nav a{font:600 15px "Hind Siliguri",sans-serif;padding:8px 14px;border-radius:999px;color:var(--mute);transition:background .2s,color .2s}
-  .nav a:hover{background:var(--card);color:var(--ink)}
-  .wrap{max-width:1180px;padding:0 32px 56px}
-  .top{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:36px 0 8px}
-  .hero{padding:12px 0}
-  .hero h1{font-size:72px;max-width:none}
-  .hero p{font-size:18px;max-width:30em}
-  .tag{display:none}
-  .camp{margin:0;padding:24px 26px;border-radius:28px}
-  .camp .ct{font-size:34px}
-  .cd b{font-size:26px}.cd div{min-width:64px}
-  .cbtn{font-size:18px}
-  .tipbar{display:flex;align-items:center;gap:14px;margin-top:22px}
-  .tipbar p{margin:0;font-size:15px}
-  h2{font-size:28px;margin:52px 0 4px}
-  .g2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-  .g2>div>h2:first-child{margin-top:44px}
-  .flags{grid-template-columns:1fr 1fr}
-  .stores{grid-template-columns:repeat(4,1fr);gap:16px}
-  .store:last-child:nth-child(odd){grid-column:auto;flex-direction:column;align-items:stretch}
-  .store:last-child:nth-child(odd) em{margin:auto 0 0;align-self:flex-start}
-  .cps{grid-template-columns:repeat(3,1fr);gap:16px}
-  .socs{grid-template-columns:repeat(5,1fr);gap:16px}
-  .soc{flex-direction:column;text-align:center;padding:22px 12px;gap:10px}
-  .soc em{margin:2px 0 0}
-  .trust{max-width:760px}
-  .again{display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:28px;padding:28px 32px;border-radius:28px}
-  .again h2{margin:0 0 6px;font-size:26px}
-  .again p{margin:0}
-  .sticky{max-width:640px;bottom:20px}
-  .toast{bottom:32px}
-}
-@media (min-width:1200px){.hero h1{font-size:80px}}
-
-/* v6 polish */
-h2{position:relative;padding-bottom:10px}
-h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:4px;border-radius:4px;background:var(--coral)}
-.again h2::after{background:var(--gold)}
-.sub{margin-top:8px}
-.store{position:relative;overflow:hidden}
-.store:first-child{border-color:var(--coral)}
-.store:first-child::before{content:"★";position:absolute;top:8px;right:12px;color:var(--coral);font-size:14px}
-.soc:first-child .si{box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 18%,transparent)}
-@media (min-width:900px){
-  h2{margin-top:64px}
-  .g2>div>h2:first-child{margin-top:56px}
-  .store{padding:18px 16px 16px}
-  .soc{padding:26px 12px}
-}
-
-/* v7 desktop redesign */
-.navcta{display:none}
-@media (min-width:900px){
-  .bar{display:block}
-  .barin{max-width:1176px;width:100%}
-  .nav{margin:0 0 0 auto}
-  .navcta{display:inline-flex;align-items:center;margin:0 14px 0 8px;background:var(--coral);color:#fff;border-radius:999px;padding:8px 20px;font:800 15px "Baloo Da 2",sans-serif;transition:transform .15s}
-  .navcta:hover{transform:translateY(-2px)}
-  :root[data-theme="dark"] .navcta{color:#1a0c04}
-  .wrap{max-width:1240px}
-  .top{padding:44px 0 12px;gap:56px}
-  .hero h1{font-size:84px}
-  #steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
-  .acc{margin:0;display:flex;flex-direction:column}
-  .acc summary{pointer-events:none;cursor:default;padding:18px 18px 6px;min-height:0}
-  .acc summary::after{display:none}
-  .acc summary{font-size:17px}
-  .acc p{padding:0 18px 18px 54px;font-size:15px}
-  .g2{gap:32px;align-items:stretch;margin-top:8px}
-  .g2>div>h2:first-child{margin-top:56px}
-  .know{height:auto}
-  .trust{background:none;border:0;box-shadow:none;padding:0;max-width:none}
-  .trust ul{list-style:none;padding:0;grid-template-columns:repeat(3,1fr);gap:16px;color:var(--ink)}
-  .trust li{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--coral);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);font-size:15px}
-  .again{margin-top:56px}
-  footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
-}
-@media (min-width:1500px){.wrap{max-width:1320px}.barin{max-width:1256px}}
-
-/* v8 equal-size buttons */
+.soc em{margin-left:auto;font:800 14px "Baloo Da 2",sans-serif;font-style:normal;color:var(--co)}
+.rvbox{display:grid;gap:14px}
+.rvs{display:grid;gap:12px}
+.rsum{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rsum b{font:800 38px "Baloo Da 2",sans-serif;line-height:1}
+.stars{color:var(--gold);letter-spacing:2px}
+.rv{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--sh)}
+.rv .h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.rv b{font:800 16px "Baloo Da 2",sans-serif}
+.rv small,.note{color:var(--mute);font-size:12.5px}
+.rv p{font-size:14.5px;margin-top:4px;overflow-wrap:anywhere}
+.rf{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--sh);display:grid;gap:10px;align-content:start}
+.rf input,.rf textarea{width:100%;font:400 15px "Hind Siliguri",sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.rf textarea{min-height:96px;resize:vertical}
+.rf select{width:100%;font:400 15px "Hind Siliguri",sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 14px;font:600 13.5px "Hind Siliguri",sans-serif;cursor:pointer}
+.chip.on{background:var(--co);color:var(--on);border-color:var(--co)}
+.store{position:relative}
+.sl{display:contents}
+.sr{display:block;font-size:12.5px;font-weight:600}.sr .stars{letter-spacing:0}
+.best{position:absolute;top:8px;right:10px;background:var(--gold);color:#1B2A25;font:800 11px "Baloo Da 2",sans-serif;border-radius:999px;padding:1px 9px}
+.vt{font-size:12.5px;font-weight:600;color:var(--co);margin-top:2px}
+.tag{position:absolute;right:2px;top:2px;width:88px;border:0;background:none;cursor:pointer;transform-origin:50% 0;animation:tagidle 6s ease-in-out 1s infinite;color:var(--ink);z-index:2}
+.tag.sw{animation:tagsw 1.4s ease-in-out 1}
+.tag svg{display:block;width:100%;height:auto;overflow:visible}
+@keyframes tagidle{0%,40%,100%{transform:rotate(0)}8%{transform:rotate(14deg)}18%{transform:rotate(-10deg)}28%{transform:rotate(5deg)}}
+@keyframes tagsw{0%{transform:rotate(0)}20%{transform:rotate(14deg)}45%{transform:rotate(-10deg)}70%{transform:rotate(5deg)}100%{transform:rotate(0)}}
+.rf .hp{position:absolute;left:-9999px}
+.pick{display:flex;gap:4px}
+.pick button{background:none;border:0;font-size:32px;line-height:1;color:var(--line);cursor:pointer;padding:2px}
+.pick button.on{color:var(--gold)}
+.go{border:0;background:var(--co);color:var(--on);border-radius:12px;height:46px;font:800 16px "Baloo Da 2",sans-serif;cursor:pointer}
+.go:disabled{opacity:.6}
+.trust{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--sh)}
+.trust ul{padding-left:20px;display:grid;gap:8px;color:var(--mute);font-size:14.5px}
+.again{margin-top:30px;background:var(--ink);color:var(--bg);border-radius:24px;padding:20px 18px}
+.again h2{margin:0 0 4px;color:var(--bg)}.again h2::after{background:var(--gold)}
+.again p{opacity:.85;font-size:14.5px;margin-bottom:14px}
 .agb{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.again .pill,.again .share{width:100%;height:50px;min-width:0;padding:0 14px;font-size:15px;line-height:1.15;text-align:center}
+.agb .pill{height:50px;font-size:15px;line-height:1.15;background:var(--co);color:var(--on);border:0;min-width:0;padding:0 14px}
+footer{margin-top:28px;text-align:center;color:var(--mute);font-size:12.5px;padding-top:6px}
+footer p,footer details{margin-top:6px}
+footer a{opacity:.85}footer a:hover{text-decoration:underline}
+footer summary{cursor:pointer}
+footer details p{text-align:left;max-width:640px;margin:6px auto}
+.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:496px;margin:0 auto;z-index:8;background:var(--ink);color:var(--bg);border-radius:16px;padding:8px 8px 8px 16px;display:flex;align-items:center;gap:10px;justify-content:space-between;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.sticky span{font-weight:600;font-size:15px;line-height:1.3}
+.sticky a{background:var(--co);color:var(--on);border-radius:11px;padding:8px 16px;font:800 15px "Baloo Da 2",sans-serif;white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translate(-50%,40px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;font-size:14px;z-index:9;max-width:92vw;text-align:center}
+.toast.on{transform:translate(-50%,0);opacity:1}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (min-width:900px){
-  .agb{gap:14px}
-  .again .pill,.again .share{height:54px;font-size:16px}
-}
-
-/* v9 equal columns */
-@media (min-width:900px){
-  .g2{align-items:stretch}
-  .g2>div{display:flex;flex-direction:column}
-  .flags{flex:1;grid-template-rows:1fr}
-  .flag{display:flex;flex-direction:column;padding:16px 18px}
-  .flag ul{flex:1;align-content:space-evenly;gap:8px}
-  .know{flex:1;grid-auto-rows:1fr;gap:12px}
-  .know li{display:flex;align-items:center;padding:12px 18px}
+body{font-size:17px;padding-bottom:40px}
+.bar{padding:12px 32px}.barin{max-width:1176px}
+.nav{display:flex;gap:4px;margin-left:auto;margin-right:8px}
+.nav a{font:600 15px "Hind Siliguri",sans-serif;padding:8px 14px;border-radius:999px;color:var(--mute)}
+.nav a:hover{background:var(--card);color:var(--ink)}
+.navcta{display:inline-flex;align-items:center;background:var(--co);color:var(--on);border-radius:999px;padding:8px 20px;font:800 15px "Baloo Da 2",sans-serif;margin-right:14px}
+.wrap{max-width:1240px;padding:0 32px 56px}
+.top{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:44px 0 12px}
+.hero{padding:12px 0}.hero h1{font-size:84px;max-width:none}.hero p{font-size:18px}
+.camp{margin:0;padding:24px 26px;border-radius:28px}
+.camp .ct{font-size:34px}.cd b{font-size:26px}.cd div{min-width:64px}
+h2{font-size:28px;margin-top:64px}
+#steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.acc{margin:0}.acc summary{pointer-events:none;padding:18px 18px 6px;min-height:0;font-size:17px}.acc summary::after{display:none}
+.acc p{padding:0 18px 18px 54px;font-size:15px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
+.g2>div>h2:first-child{margin-top:56px}
+.flags{grid-template-columns:1fr 1fr}
+.stores{grid-template-columns:repeat(4,1fr);gap:16px}
+.store{padding:18px 16px 16px}
+.cps{grid-template-columns:repeat(3,1fr);gap:16px}
+.socs{grid-template-columns:repeat(5,1fr);gap:16px}
+.soc{flex-direction:column;text-align:center;padding:26px 12px;gap:10px}.soc em{margin:2px 0 0}
+.rvbox{grid-template-columns:1.2fr 1fr;gap:32px;align-items:start}
+.trust{background:none;border:0;box-shadow:none;padding:0}
+.trust ul{list-style:none;padding:0;grid-template-columns:repeat(3,1fr);gap:16px;color:var(--ink)}
+.trust li{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--co);border-radius:16px;padding:16px 18px;box-shadow:var(--sh);font-size:15px}
+.again{display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:28px;padding:28px 32px;border-radius:28px;margin-top:56px}
+.again h2{margin:0 0 6px;font-size:26px}.again p{margin:0}
+.agb{gap:14px}.agb .pill{height:54px;font-size:16px}
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+.sticky{max-width:640px;bottom:20px}.toast{bottom:32px}
 }
 </style>
 </head>
 <body>
 <div class="bar"><div class="barin">
-    <div class="brand"><i><svg viewBox="0 0 40 40" width="28" height="28" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27.500 17.500 31.500 16 33 32.500H28.500" fill="#fff" stroke-width="1.500"/><path d="M9.500 15H26.500L27.500 32H8Z"/><path d="M14.500 15V12a4.500 4.500 0 0 1 9 0V15"/></svg></i><span>Shopping Guide BD<small data-t="brandsub">Online shopping guide</small></span></div>
-    <nav class="nav" aria-label="Main">
-      <a href="#guide" data-t="nvG">Guide</a>
-      <a href="#shops" data-t="nvS">Stores</a>
-      <a href="#coupons" id="navC" data-t="nvC" hidden>Coupons</a>
-      <a href="#community" data-t="nvJ">Community</a>
-    </nav>
-    <a class="navcta" href="#community" data-t="join">Join now</a>
-    <div class="ctl">
-      <button class="pill" id="lang" aria-label="Language">বাং</button>
-      <button class="pill" id="theme" aria-label="Switch light or dark mode">🌙</button>
-    </div>
+  <div class="brand"><i><svg viewBox="0 0 40 40" width="28" height="28" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27.5 17.5 31.5 16 33 32.5H28.5" fill="#fff" stroke-width="1.5"/><path d="M9.5 15H26.5L27.5 32H8Z"/><path d="M14.5 15V12a4.5 4.5 0 0 1 9 0V15"/></svg></i><span>Shopping Guide BD<small data-t="brandsub">Online shopping guide</small></span></div>
+  <nav class="nav" aria-label="Main">
+    <a href="#guide" data-t="nvG">Guide</a>
+    <a href="#shops" data-t="nvS">Stores</a>
+    <a href="#coupons" id="navC" data-t="nvC" hidden>Coupons</a>
+    <a href="#reviews" data-t="nvR">Reviews</a>
+    <a href="#community" data-t="nvJ">Community</a>
+  </nav>
+  <a class="navcta" href="#community" data-t="join">Join now</a>
+  <div class="ctl">
+    <button class="pill" id="lang" aria-label="Language">বাং</button>
+    <button class="pill" id="theme" aria-label="Switch light or dark mode">🌙</button>
+  </div>
 </div></div>
 <div class="wrap">
   <div class="top">
-  <header class="hero">
-    <button class="tag" id="tag" aria-label="Price tag">
-      <svg viewBox="0 0 100 140"><line x1="50" y1="0" x2="50" y2="22" stroke="currentColor" stroke-width="3"/><path d="M20 30 Q20 22 28 22 H72 Q80 22 80 30 V120 Q80 128 72 128 H28 Q20 128 20 120Z" fill="#FFB627" stroke="#1B2A25" stroke-width="3"/><circle cx="50" cy="38" r="6" fill="#FFF6E5" stroke="#1B2A25" stroke-width="3"/><text x="50" y="76" text-anchor="middle" font-family="Baloo Da 2,sans-serif" font-weight="800" font-size="26" fill="#1B2A25">HOT</text><text x="50" y="100" text-anchor="middle" font-family="Baloo Da 2,sans-serif" font-weight="800" font-size="15" fill="#F0452A">DEALS</text></svg>
-    </button>
-    <div class="rot" aria-hidden="true"><i class="dot"></i><span id="rot" class="rt"></span></div>
-    <h1><span data-t="h1a">Shop Smart.</span><span data-t="h1b" style="color:var(--ink)">Save More.</span></h1>
-    <p data-t="lead">Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.</p>
-    <div class="streak" id="streak" hidden></div>
-  </header>
-
-  <section class="camp" id="camp" aria-live="polite">
-    <small id="cLabel"></small>
-    <div class="ct" id="cTitle"></div>
-    <p id="cSub"></p>
-    <div class="cd" id="cCd" hidden></div>
-    <a class="cbtn" id="cBtn" target="_blank" rel="noopener sponsored"></a>
-    <a class="l2" href="#guide" data-t="seeGuide">How to grab the deals ↓</a>
-  </section>
+    <header class="hero">
+      <button class="tag" id="tag" aria-label="Deals"><svg viewBox="0 0 100 140" aria-hidden="true"><line x1="50" y1="0" x2="50" y2="22" stroke="currentColor" stroke-width="3"/><path d="M20 30 Q20 22 28 22 H72 Q80 22 80 30 V120 Q80 128 72 128 H28 Q20 128 20 120Z" fill="#FFB627" stroke="#1B2A25" stroke-width="3"/><circle cx="50" cy="38" r="6" fill="#FFF6E5" stroke="#1B2A25" stroke-width="3"/><text id="tg1" x="50" y="76" text-anchor="middle" font-family="Baloo Da 2,sans-serif" font-weight="800" font-size="22" fill="#1B2A25"></text><text id="tg2" x="50" y="100" text-anchor="middle" font-family="Baloo Da 2,sans-serif" font-weight="800" font-size="15" fill="#E8500A"></text></svg></button>
+      <div class="rot" aria-hidden="true"><i class="dot"></i><span id="rot" class="rt"></span></div>
+      <h1><span class="a" data-t="h1a">Shop Smart.</span><span data-t="h1b">Save More.</span></h1>
+      <p data-t="lead"></p>
+      <div class="streak" id="streak" hidden></div>
+    </header>
+    <section class="camp" id="camp" aria-live="polite">
+      <small id="cLabel"></small>
+      <div class="ct" id="cTitle"></div>
+      <p id="cSub"></p>
+      <div class="cd" id="cCd" hidden></div>
+      <a class="cbtn" id="cBtn" target="_blank" rel="noopener sponsored"></a>
+      <a class="l2" href="#guide" data-t="seeGuide">How to grab the deals ↓</a>
+    </section>
   </div>
-  <div class="mini tipbar"><small data-t="tipL">Tip of the day</small><p id="tip"></p></div>
+  <div class="mini"><small data-t="tipL">Tip of the day</small><p id="tip"></p></div>
 
   <section id="guide">
-    <h2 data-t="gH">Smart shopping in 6 steps</h2>
-    <p class="sub" data-t="gS">Follow this checklist for every online order. It takes two minutes and can save you money and trouble.</p>
+    <h2 data-t="gH"></h2>
+    <p class="sub" data-t="gS"></p>
     <div id="steps"></div>
     <div class="g2">
       <div>
-        <h2 data-t="rfH">Real deal or fake discount?</h2>
-        <p class="sub" data-t="rfS">Quick signs to check before you pay.</p>
+        <h2 data-t="rfH"></h2>
+        <p class="sub" data-t="rfS"></p>
         <div class="flags">
-          <div class="flag good"><h3 data-t="gdH">Good signs</h3><ul id="good"></ul></div>
-          <div class="flag bad"><h3 data-t="bdH">Red flags</h3><ul id="bad"></ul></div>
+          <div class="flag good"><h3 data-t="gdH"></h3><ul id="good"></ul></div>
+          <div class="flag bad"><h3 data-t="bdH"></h3><ul id="bad"></ul></div>
         </div>
       </div>
       <div>
-        <h2 data-t="safeH">Stay safe from scams</h2>
-        <p class="sub" data-t="safeS">Simple habits that protect your money and accounts.</p>
+        <h2 data-t="safeH"></h2>
+        <p class="sub" data-t="safeS"></p>
         <ul class="know" id="know"></ul>
       </div>
     </div>
   </section>
 
   <section id="shops">
-    <h2 data-t="stH">Where to shop in Bangladesh</h2>
-    <p class="sub" data-t="stS">Compare before you buy. Tap a store to see current deals.</p>
+    <h2 data-t="stH"></h2>
+    <p class="sub" data-t="stS"></p>
     <div class="stores" id="stores"></div>
   </section>
 
   <section id="coupons" hidden>
-    <h2 data-t="cpH">Coupons &amp; vouchers</h2>
-    <p class="sub" data-t="cpS">Copy a code and apply it at checkout. Check the shop’s terms before you pay.</p>
+    <h2 data-t="cpH"></h2>
+    <p class="sub" data-t="cpS"></p>
     <div class="cps" id="cpList"></div>
   </section>
 
+  <section id="reviews">
+    <h2 data-t="rvH"></h2>
+    <p class="sub" data-t="rvS"></p>
+    <div class="rvbox">
+      <div><div class="chips" id="chips"></div><div class="rsum" id="rsum"></div><div class="rvs" id="rvs" aria-live="polite"></div></div>
+      <form class="rf" id="rf" novalidate>
+        <select name="st" id="stSel" aria-label="Store"></select>
+        <input name="nm" maxlength="40" autocomplete="name" data-p="rvN" aria-label="Name">
+        <div><div class="note" data-t="rvR"></div>
+          <div class="pick" id="pick" role="group" aria-label="Rating">
+            <button type="button" data-v="1" aria-label="1">★</button><button type="button" data-v="2" aria-label="2">★</button><button type="button" data-v="3" aria-label="3">★</button><button type="button" data-v="4" aria-label="4">★</button><button type="button" data-v="5" aria-label="5">★</button>
+          </div>
+        </div>
+        <textarea name="tx" maxlength="500" data-p="rvT" aria-label="Review"></textarea>
+        <input class="hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="note" data-t="rvW"></div>
+        <button class="go" type="submit" data-t="rvSend"></button>
+      </form>
+    </div>
+  </section>
+
   <section id="community">
-    <h2 data-t="joinH">Join the community</h2>
-    <p class="sub" data-t="joinS">Join one channel and get every new deal first. Flash sales end in hours.</p>
+    <h2 data-t="joinH"></h2>
+    <p class="sub" data-t="joinS"></p>
     <div class="socs" id="soc"></div>
   </section>
 
-  <h2 data-t="wH">About this guide</h2>
+  <h2 data-t="wH"></h2>
   <div class="trust"><ul><li data-t="w1"></li><li data-t="w2"></li><li data-t="w3"></li></ul></div>
 
   <section class="again">
-    <div>
-      <h2 data-t="agH">New deals every day. Come back daily.</h2>
-      <p data-t="agS">Bookmark this page and join a channel so you never miss a flash sale.</p>
-    </div>
-    <div class="agb"><button class="pill" id="pwa" data-t="addHome">Add to home screen</button><button class="pill share" id="share" data-t="share">Share with friends</button></div>
+    <div><h2 data-t="agH"></h2><p data-t="agS"></p></div>
+    <div class="agb"><button class="pill" id="pwa" data-t="addHome"></button><button class="pill" id="share" data-t="share"></button></div>
   </section>
 
   <footer>
-    <p class="rec"><span data-t="recH">Recommended stores</span>: <span id="rec"></span></p>
-    <p class="disc" data-t="disc">We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.</p>
+    <p><span data-t="recH"></span>: <span id="rec"></span></p>
+    <p data-t="disc"></p>
+    <details><summary data-t="pvH"></summary><p data-t="pv1"></p><p data-t="pv2"></p></details>
     <p>© <span id="yr"></span> Shopping Guide BD</p>
   </footer>
 </div>
-<div class="sticky" id="sticky" hidden><span id="sTx"></span><a id="sBtn" target="_blank" rel="noopener sponsored"></a></div>
+<div class="sticky" id="sticky" hidden><span id="sTx"></span><a id="sBtn" target="_blank" rel="noopener sponsored" data-aff="campaign_sticky"></a></div>
 <div class="toast" id="toast"></div>
 
 <script>
 /* ===== EDIT HERE ===== */
-/* 1) Campaign banner. Change this only when a sale comes (11.11, Eid, Black Friday).
-      After "end" passes, the banner switches to "Daily deals on Telegram" by itself.
-      Set CAMPAIGN=null to hide the campaign. */
+/* 0) FIREBASE REVIEWS. Paste your config between the braces, e.g.
+   var FIREBASE_CONFIG={apiKey:"...",authDomain:"...",projectId:"...",storageBucket:"...",messagingSenderId:"...",appId:"..."};
+   While it is null, the page shows 2 SAMPLE reviews (preview mode only). */
+var FIREBASE_CONFIG=null;
+
+/* 1) Campaign banner. After "end" passes it switches to "Daily deals on Telegram". Set CAMPAIGN=null to hide. */
 var CAMPAIGN={
   title:{en:"11.11 Biggest Sale of the Year",bn:"১১.১১ বছরের সেরা সেল"},
   short:{en:"11.11 Sale",bn:"১১.১১ সেল"},
@@ -458,9 +339,8 @@ var CAMPAIGN={
   end:"2026-11-21T23:59:59+06:00",
   url:"https://s.daraz.com.bd/s.YhNmR?cc"
 };
-/* 2) Stores. Replace each url with your affiliate link (or leave the normal store link). */
+/* 2) Stores. d = website (loads the shop icon). Add img:"logo.png" to use your own logo. */
 var STORES=[
-  /* d = website, used to load the shop's own icon. To use a full logo file instead, add img:"logo-daraz.png". Order here = order on the page. */
   {n:"Daraz",m:"D",c:"#F85606",d:"daraz.com.bd",t:{en:"Everyday deals and vouchers",bn:"প্রতিদিনের ডিল ও ভাউচার"},url:"https://s.daraz.com.bd/s.YfNof?cc"},
   {n:"Cartup",m:"C",c:"#7B3FE4",d:"cartup.com",t:{en:"Daily shopping",bn:"দৈনন্দিন কেনাকাটা"},url:"https://cartup.trk2afse.com/click?pid=102&offer_id=7"},
   {n:"Rokomari",m:"R",c:"#2E7D5B",d:"rokomari.com",t:{en:"Books and more",bn:"বই ও আরও অনেক কিছু"},url:"https://rkmri.co/03MR0ARe2M52/"},
@@ -471,7 +351,7 @@ var STORES=[
   {n:"10 Minute School",m:"10",c:"#0E9AA7",d:"10minuteschool.com",t:{en:"Online courses and skills",bn:"অনলাইন কোর্স ও স্কিল"},url:"https://10ms.io/mZDYRj"}
 ];
 var TELEGRAM="https://t.me/ShoppingGuideBD";
-/* 3) Social links. Title is always "Shopping Guide BD"; n = platform label. */
+/* 3) Social links. */
 var SOCIAL=[
   {n:"Website",c:"#0E7C5A",a:"visit",url:"https://shoppingguidebd.blogspot.com/",i:"web"},
   {n:"Facebook",c:"#1877F2",a:"follow",url:"https://www.facebook.com/ShoppingGuideBD",i:"fb"},
@@ -482,15 +362,12 @@ var SOCIAL=[
 var ICONS={
   tg:"M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13 1.9 11.5c-1-.3-1-1 .2-1.5L20.4 3c.9-.3 1.6.2 1.5 1.3z",
   fb:"M14 8V6.5c0-.7.2-1 1.1-1H17V2h-2.8C11.2 2 10 3.7 10 6.2V8H8v3.5h2V22h4V11.5h2.7L17 8z",
-  yt:"M22 8.2c-.2-1-.9-1.7-1.9-1.9C18.500 6 12 6 12 6s-6.500 0-8.100.3C2.900 6.500 2.200 7.200 2 8.200 1.700 9.800 1.700 12 1.700 12s0 2.200.3 3.800c.2 1 .9 1.700 1.900 1.900C5.500 18 12 18 12 18s6.500 0 8.100-.3c1-.2 1.700-.9 1.900-1.900.3-1.600.3-3.800.3-3.800s0-2.200-.3-3.800zM10 15V9l5.200 3z",
-  web:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.900 9h-3a15.600 15.600 0 0 0-1.300-5.500A8 8 0 0 1 18.900 11zM12 4c.8 1.100 1.500 3 1.900 7h-3.800c.4-4 1.100-5.900 1.900-7zM4.300 13h3a15.600 15.600 0 0 0 1.300 5.500A8 8 0 0 1 4.300 13zm3-2h-3a8 8 0 0 1 4.300-5.500A15.600 15.600 0 0 0 7.300 11zM12 20c-.8-1.100-1.500-3-1.900-7h3.800c-.4 4-1.100 5.900-1.900 7zm2.400-1.500a15.600 15.600 0 0 0 1.300-5.500h3a8 8 0 0 1-4.300 5.500z",
-  wa:"M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm0 18.200c-1.500 0-3-.4-4.200-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-.7-.3-1.500-.8-2.200-1.500-.6-.6-1-1.200-1.100-1.400-.1-.2 0-.3.100-.5l.4-.5c.1-.1.100-.2.200-.4.100-.1 0-.3 0-.4l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.100-.6.300-.2.200-.8.800-.8 1.900s.8 2.200.9 2.300c.1.200 1.600 2.500 3.900 3.400 1.400.6 2 .7 2.700.6.400-.1 1.400-.6 1.600-1.100.2-.5.200-1 .1-1.100-.1-.1-.2-.2-.4-.3z"
+  yt:"M22 8.2c-.2-1-.9-1.7-1.9-1.9C18.5 6 12 6 12 6s-6.5 0-8.1.3C2.9 6.5 2.2 7.2 2 8.2 1.7 9.8 1.7 12 1.7 12s0 2.2.3 3.8c.2 1 .9 1.7 1.9 1.9C5.5 18 12 18 12 18s6.5 0 8.1-.3c1-.2 1.7-.9 1.9-1.9.3-1.6.3-3.8.3-3.8s0-2.2-.3-3.8zM10 15V9l5.2 3z",
+  web:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 9h-3a15.600 15.600 0 0 0-1.300-5.500A8 8 0 0 1 18.900 11zM12 4c.8 1.100 1.500 3 1.900 7h-3.800c.4-4 1.100-5.900 1.900-7zM4.300 13h3a15.600 15.600 0 0 0 1.300 5.500A8 8 0 0 1 4.300 13zm3-2h-3a8 8 0 0 1 4.300-5.500A15.600 15.600 0 0 0 7.300 11zM12 20c-.8-1.100-1.500-3-1.900-7h3.800c-.4 4-1.100 5.900-1.900 7zm2.400-1.500a15.600 15.600 0 0 0 1.300-5.500h3a8 8 0 0 1-4.300 5.500z",
+  wa:"M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm0 18.200c-1.500 0-3-.4-4.200-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.200-.3.200-.5.100-.7-.3-1.500-.8-2.200-1.500-.6-.6-1-1.200-1.100-1.400-.1-.2 0-.3.100-.5l.4-.5c.1-.1.100-.2.200-.4.100-.1 0-.3 0-.4l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.100-.6.300-.2.200-.8.800-.8 1.900s.8 2.200.9 2.300c.1.200 1.600 2.500 3.900 3.400 1.400.6 2 .7 2.700.6.4-.1 1.400-.6 1.600-1.100.2-.5.200-1 .1-1.100-.1-.1-.2-.2-.4-.3z"
 };
-/* 5) Optional coupons. Leave the list empty and the Coupons section stays hidden.
-      Fields: store, offer{en,bn}, code, exp ("YYYY-MM-DD", optional), url.
-      Example (remove the comment marks to use):
-      {store:"Daraz",offer:{en:"Voucher offer text",bn:"ভাউচারের বিবরণ"},code:"YOURCODE",exp:"2026-12-31",url:"https://..."}
-*/
+/* 5) Optional coupons. Empty list = Coupons section hidden.
+   {store:"Daraz",offer:{en:"Voucher offer text",bn:"ভাউচারের বিবরণ"},code:"YOURCODE",exp:"2026-12-31",url:"https://..."} */
 var COUPONS=[];
 /* 6) Rotating headline words */
 var ROT=[
@@ -499,7 +376,7 @@ var ROT=[
   {en:"Safe payment advice",bn:"নিরাপদ পেমেন্টের পরামর্শ"},
   {en:"Daily offer updates",bn:"প্রতিদিনের অফার আপডেট"}
 ];
-/* 4) Guide content. Edit freely. */
+/* 4) Guide content. */
 var STEPS=[
   {t:{en:"Decide what you need and your budget",bn:"কী কিনবেন ও বাজেট ঠিক করুন"},d:{en:"Write down the item and the most you will pay. This stops impulse buying during big sales.",bn:"কী কিনবেন আর সর্বোচ্চ কত খরচ করবেন লিখে রাখুন। বড় সেলের সময় বাড়তি কেনা থামাতে এটি সাহায্য করে।"}},
   {t:{en:"Compare prices in two or three shops",bn:"দুই-তিনটি শপে দাম মিলিয়ে নিন"},d:{en:"Check the same model in different shops. A real discount still looks good after you compare.",bn:"একই মডেল আলাদা শপে দেখুন। তুলনার পরেও ভালো থাকলে ছাড়টি আসল।"}},
@@ -537,26 +414,46 @@ var KNOW=[
   {en:"Keep the order number, invoice and payment screenshot. You need them for a return or complaint.",bn:"অর্ডার নম্বর, ইনভয়েস ও পেমেন্টের স্ক্রিনশট রাখুন। রিটার্ন বা অভিযোগে লাগবে।"},
   {en:"If a seller cheats you, report it to the shop’s support first. You can also call the national consumer hotline 16121.",bn:"কোনো সেলার ঠকালে আগে শপের সাপোর্টে জানান। জাতীয় ভোক্তা হটলাইন ১৬১২১ নম্বরেও জানাতে পারেন।"}
 ];
+/* Streak levels: d = day streak needed. Edit names and messages freely. */
+var LEVELS=[
+  {d:1,i:"👋",en:"New Visitor",bn:"নতুন ভিজিটর",m:{en:"Welcome! New deals land every day. Come back tomorrow.",bn:"স্বাগতম! রোজ নতুন ডিল আসে, কাল আবার ঘুরে যান।"}},
+  {d:2,i:"🌱",en:"Smart Starter",bn:"স্মার্ট স্টার্টার",m:{en:"Nice, you came back! Keep going.",bn:"দারুণ, আবার এসেছেন! চালিয়ে যান।"}},
+  {d:3,i:"⭐",en:"Deal Spotter",bn:"ডিল স্পটার",m:{en:"3 days in a row. You are spotting real deals now.",bn:"টানা ৩ দিন। এখন আপনি আসল ডিল চিনতে শিখছেন।"}},
+  {d:7,i:"🔥",en:"Deal Hunter",bn:"ডিল হান্টার",m:{en:"A full week! You are a true deal hunter.",bn:"পুরো এক সপ্তাহ! আপনি সত্যিকারের ডিল হান্টার।"}},
+  {d:14,i:"💎",en:"Pro Shopper",bn:"প্রো শপার",m:{en:"Two weeks strong. Share the guide with a friend.",bn:"টানা দুই সপ্তাহ। বন্ধুকে গাইডটি শেয়ার করুন।"}},
+  {d:30,i:"👑",en:"Deal Master",bn:"ডিল মাস্টার",m:{en:"30 days! You are a Deal Master. Thank you for staying with us.",bn:"৩০ দিন! আপনি ডিল মাস্টার। পাশে থাকার জন্য ধন্যবাদ।"}}
+];
+/* Sample reviews shown ONLY while FIREBASE_CONFIG is null (preview). */
+var DEMO=[
+  {name:"Sample reviewer",rating:5,store:"Daraz",text:"Fast delivery and the voucher worked at checkout.",t:1763300000000},
+  {name:"Sample reviewer",rating:4,store:"Daraz",text:"Good prices during the sale. Compare first.",t:1763200000000},
+  {name:"Sample reviewer",rating:5,store:"Daraz",text:"Easy return when my order was damaged.",t:1763100000000},
+  {name:"Sample reviewer",rating:5,store:"Rokomari",text:"Books arrived in two days, well packed.",t:1763000000000},
+  {name:"Sample reviewer",rating:4,store:"StarTech",text:"Genuine product with proper warranty.",t:1762950000000},
+  {name:"Sample reviewer",rating:4,text:"Simple and useful. I like the safe payment tips.",t:1762900000000}
+];
 /* ===================== */
 var T={
-en:{safeS:"Simple habits that protect your money and accounts.",nvG:"Guide",nvS:"Stores",nvC:"Coupons",nvJ:"Community",cpH:"Coupons & vouchers",cpS:"Copy a code and apply it at checkout. Check the shop’s terms before you pay.",cpCopy:"Copy",cpCopied:"Code copied",cpShop:"Shop now",cpExp:"Expires",cpExpired:"Expired",recH:"Recommended stores",h1a:"Shop Smart.",h1b:"Save More.",lead:"Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.",ends:"Today’s picks refresh in",joinH:"Join the community",joinS:"Join one channel and get every new deal first. Flash sales end in hours.",t1:"Daraz Offers & Deals",t1d:"Daraz deals, flash sales and vouchers on Telegram.",t2:"Shopping Guide BD channel",t2d:"Deals, tips and reviews from Shopping Guide BD.",t3:"Facebook page",t3d:"Follow for posts, giveaways and shopping updates.",t4:"YouTube channel",t4d:"Product reviews and how-to shopping videos.",t5:"Our blog",t6:"WhatsApp channel",t6d:"Quick deal alerts straight to your phone.",t5d:"Full buying guides and the latest offers in one place.",join:"Join now",follow:"Follow",watch:"Watch",visit:"Visit site",trH:"Trending deals",trS:"Hand-picked deals from top online shops.",share:"Share with friends",disc:"We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.",buy:"View deal",off:"off",toastTag:"New deals every day!",copied:"Link copied",lang:"বাং",brandsub:"Online shopping guide",t7:"Telegram group",t7d:"Ask questions and share deals with other shoppers.",t8:"Facebook group",t8d:"Join the group to ask, share and discuss with other buyers.",rfH:"Real deal or fake discount?",rfS:"Quick signs to check before you pay.",gdH:"Good signs",bdH:"Red flags",safeH:"Stay safe from scams",saleP:"11.11 sale pages and dates",bdChip:"🇧🇩 Made for Bangladeshi shoppers",tipL:"Tip of the day",nextL:"Upcoming sales",saleNote:"Typical dates. Confirm in the shop’s app.",agH:"New deals every day. Come back daily.",agS:"Bookmark this page and join a channel so you never miss a flash sale.",addHome:"Add to home screen",homeHow:"Open your browser menu and tap “Add to Home screen”.",seeGuide:"Smart shopping checklist ↓",gH:"Smart shopping in 6 steps",gS:"Follow this checklist for every online order. It takes two minutes and can save you money and trouble.",clH:"Daraz 11.11 campaign pages",calH:"Sale timeline",stepH:"How to grab deals, step by step",knowH:"Good to know",wH:"About this guide",w1:"Shopping Guide BD is an independent guide. We don’t sell anything.",w2:"We update this page when a new sale or campaign starts.",w3:"Prices, stock and offers change fast. Check the final price and terms in the shop’s app before you pay.",sLive:"is live",sOpen:"See offers",stH:"Where to shop in Bangladesh",stS:"Compare before you buy. Tap a store to see current deals.",shop:"Shop deals",live:"Live now",endsIn:"Ends in",campBtn:"See the 11.11 sale",fbT:"Daily deals on Telegram",fbS:"Join the channel to get new offers and vouchers first.",fbB:"Join on Telegram",dd:"days",hh:"hrs",mm:"min",ss:"sec"},
-bn:{safeS:"সহজ কিছু অভ্যাস আপনার টাকা ও অ্যাকাউন্ট নিরাপদ রাখে।",nvG:"গাইড",nvS:"স্টোর",nvC:"কুপন",nvJ:"কমিউনিটি",cpH:"কুপন ও ভাউচার",cpS:"কোড কপি করে চেকআউটে ব্যবহার করুন। পেমেন্টের আগে শপের শর্ত দেখে নিন।",cpCopy:"কপি",cpCopied:"কোড কপি হয়েছে",cpShop:"কিনুন",cpExp:"মেয়াদ",cpExpired:"মেয়াদ শেষ",recH:"সুপারিশকৃত স্টোর",h1a:"স্মার্ট শপিং।",h1b:"বেশি সাশ্রয়।",lead:"বাংলাদেশে অনলাইনে কেনাকাটার ফ্রি গাইড: আসল ডিল চিনুন, শপ তুলনা করুন, নিরাপদে পেমেন্ট করুন, প্রতারণা এড়ান।",ends:"আজকের পিক বদলাতে বাকি",joinH:"কমিউনিটিতে যোগ দিন",joinS:"যেকোনো একটি চ্যানেলে যোগ দিন, নতুন ডিল সবার আগে পান। ফ্ল্যাশ সেল কয়েক ঘণ্টায় শেষ হয়।",t1:"দারাজ অফার ও ডিলস",t1d:"টেলিগ্রামে দারাজের ডিল, ফ্ল্যাশ সেল ও ভাউচার।",t2:"শপিং গাইড বিডি চ্যানেল",t2d:"শপিং গাইড বিডি-র ডিল, টিপস ও রিভিউ।",t3:"ফেসবুক পেজ",t3d:"পোস্ট, গিভঅ্যাওয়ে ও শপিং আপডেটের জন্য ফলো করুন।",t4:"ইউটিউব চ্যানেল",t4d:"প্রোডাক্ট রিভিউ ও শপিং টিউটোরিয়াল ভিডিও।",t5:"আমাদের ব্লগ",t6:"হোয়াটসঅ্যাপ চ্যানেল",t6d:"সরাসরি ফোনে দ্রুত ডিল অ্যালার্ট।",t5d:"কেনাকাটার পূর্ণ গাইড ও সর্বশেষ অফার এক জায়গায়।",join:"যোগ দিন",follow:"ফলো করুন",watch:"দেখুন",visit:"সাইটে যান",trH:"ট্রেন্ডিং ডিল",trS:"দেশের সেরা অনলাইন শপ থেকে বাছাই করা ডিল।",share:"বন্ধুদের সাথে শেয়ার করুন",disc:"আমরা একটি শপিং গাইড, দোকান নই। আমরা অনলাইন শপের লিংক দিই এবং এতে আপনার বাড়তি খরচ ছাড়াই সামান্য কমিশন পেতে পারি।",buy:"ডিল দেখুন",off:"ছাড়",toastTag:"প্রতিদিন নতুন ডিল!",copied:"লিংক কপি হয়েছে",lang:"EN",brandsub:"অনলাইন শপিং গাইড",t7:"টেলিগ্রাম গ্রুপ",t7d:"প্রশ্ন করুন ও অন্য ক্রেতাদের সাথে ডিল শেয়ার করুন।",t8:"ফেসবুক গ্রুপ",t8d:"প্রশ্ন, শেয়ার ও আলোচনার জন্য গ্রুপে যোগ দিন।",rfH:"আসল ডিল নাকি নকল ছাড়?",rfS:"পেমেন্টের আগে দ্রুত দেখে নিন।",gdH:"ভালো লক্ষণ",bdH:"সতর্ক সংকেত",safeH:"প্রতারণা থেকে সাবধান",saleP:"১১.১১ সেলের পেজ ও তারিখ",bdChip:"🇧🇩 বাংলাদেশি ক্রেতাদের জন্য",tipL:"আজকের টিপ",nextL:"আসন্ন সেল",saleNote:"সম্ভাব্য তারিখ। শপের অ্যাপে নিশ্চিত হয়ে নিন।",agH:"রোজ নতুন ডিল। রোজ একবার ঘুরে যান।",agS:"এই পাতা বুকমার্ক করুন এবং চ্যানেলে যোগ দিন, কোনো ফ্ল্যাশ সেল মিস করবেন না।",addHome:"হোম স্ক্রিনে যোগ করুন",homeHow:"ব্রাউজারের মেনু খুলে “Add to Home screen” চাপুন।",seeGuide:"স্মার্ট কেনাকাটার চেকলিস্ট ↓",gH:"স্মার্ট কেনাকাটার ৬ ধাপ",gS:"প্রতিটি অনলাইন অর্ডারে এই চেকলিস্ট মেনে চলুন। দুই মিনিট লাগে, টাকা ও ঝামেলা দুটোই বাঁচে।",clH:"দারাজ ১১.১১ ক্যাম্পেইন পেজ",calH:"সেলের সময়সূচি",stepH:"ধাপে ধাপে ডিল ধরার নিয়ম",knowH:"জেনে রাখুন",wH:"এই গাইড সম্পর্কে",w1:"শপিং গাইড বিডি একটি স্বাধীন গাইড। আমরা কিছু বিক্রি করি না।",w2:"নতুন সেল বা ক্যাম্পেইন শুরু হলে আমরা এই পাতা আপডেট করি।",w3:"দাম, স্টক ও অফার দ্রুত বদলায়। পেমেন্টের আগে শপের অ্যাপে চূড়ান্ত দাম ও শর্ত দেখে নিন।",sLive:"চলছে",sOpen:"ডিল দেখুন",stH:"বাংলাদেশে কোথায় কিনবেন",stS:"কেনার আগে তুলনা করুন। স্টোরে ট্যাপ করে চলমান ডিল দেখুন।",shop:"ডিল দেখুন",live:"এখন চলছে",endsIn:"শেষ হতে বাকি",campBtn:"১১.১১ সেল দেখুন",fbT:"প্রতিদিনের ডিল টেলিগ্রামে",fbS:"নতুন অফার ও ভাউচার সবার আগে পেতে চ্যানেলে যোগ দিন।",fbB:"টেলিগ্রামে যোগ দিন",dd:"দিন",hh:"ঘণ্টা",mm:"মিনিট",ss:"সেকেন্ড"}
+en:{nvG:"Guide",nvS:"Stores",nvC:"Coupons",nvR:"Reviews",nvJ:"Community",join:"Join now",brandsub:"Online shopping guide",h1a:"Shop Smart.",h1b:"Save More.",lead:"Your free guide to buying online in Bangladesh: spot real deals, compare shops, pay safely and avoid scams.",seeGuide:"How to grab the deals ↓",tipL:"Tip of the day",gH:"Smart shopping in 6 steps",gS:"Follow this checklist for every online order. It takes two minutes and can save you money and trouble.",rfH:"Real deal or fake discount?",rfS:"Quick signs to check before you pay.",gdH:"Good signs",bdH:"Red flags",safeH:"Stay safe from scams",safeS:"Simple habits that protect your money and accounts.",stH:"Where to shop in Bangladesh",stS:"Compare before you buy. Tap a store to see current deals.",shop:"Shop deals",cpH:"Coupons & vouchers",cpS:"Copy a code and apply it at checkout. Check the shop’s terms before you pay.",cpCopy:"Copy",cpCopied:"Code copied",cpShop:"Shop now",cpExp:"Expires",cpExpired:"Expired",rvH:"Shopper reviews",rvS:"Tell us which store you used and how it went. Reviews appear after a quick check.",rvN:"Your name",rvT:"Your review (max 500 characters)",rvR:"Your rating",rvSend:"Submit review",rvOk:"Thank you! Your review will appear after approval.",rvWait:"Please wait a minute before posting again.",rvErr:"Could not send. Please try again later.",rvNo:"Please add your name, a rating and a review.",rvLink:"Links are not allowed in reviews.",rvEmpty:"No reviews yet. Be the first!",rvCnt:"reviews",rvDemo:"Preview mode: sample reviews. Connect Firebase to show real ones.",joinH:"Join the community",joinS:"Join one channel and get every new deal first. Flash sales end in hours.",visit:"Visit site",follow:"Follow",watch:"Watch",wH:"About this guide",w1:"Shopping Guide BD is an independent guide. We don’t sell anything.",w2:"We update this page when a new sale or campaign starts.",w3:"Prices, stock and offers change fast. Check the final price and terms in the shop’s app before you pay.",agH:"New deals every day. Come back daily.",agS:"Bookmark this page and join a channel so you never miss a flash sale.",addHome:"Add to home screen",homeHow:"Open your browser menu and tap “Add to Home screen”.",share:"Share with friends",copied:"Link copied",recH:"Recommended stores",disc:"We are a shopping guide, not a store. We link to online shops and may earn a small commission at no extra cost to you.",pvH:"Privacy & terms",pv1:"We use Google Analytics and Microsoft Clarity to understand how the site is used. The name and comment you put in a review are stored and shown publicly after approval. Do not post phone numbers or personal details.",pv2:"Reviews are the opinions of visitors, and we may remove any review. We never ask for OTPs, passwords or advance payments.",live:"Live now",fbT:"Daily deals on Telegram",fbS:"Join the channel to get new offers and vouchers first.",fbB:"Join on Telegram",campBtn:"See the 11.11 sale",sLive:"is live",sOpen:"See offers",dd:"days",hh:"hrs",mm:"min",ss:"sec",lang:"বাং",tagT:"New deals every day!",all:"All",gen:"Shopping Guide BD (this website)",best:"Top rated",rvW:"Review the shopping experience only. Do not post personal details."},
+bn:{nvG:"গাইড",nvS:"স্টোর",nvC:"কুপন",nvR:"রিভিউ",nvJ:"কমিউনিটি",join:"যোগ দিন",brandsub:"অনলাইন শপিং গাইড",h1a:"স্মার্ট শপিং।",h1b:"বেশি সাশ্রয়।",lead:"বাংলাদেশে অনলাইনে কেনাকাটার ফ্রি গাইড: আসল ডিল চিনুন, শপ তুলনা করুন, নিরাপদে পেমেন্ট করুন, প্রতারণা এড়ান।",seeGuide:"ডিল ধরার নিয়ম ↓",tipL:"আজকের টিপ",gH:"স্মার্ট কেনাকাটার ৬ ধাপ",gS:"প্রতিটি অনলাইন অর্ডারে এই চেকলিস্ট মেনে চলুন। দুই মিনিট লাগে, টাকা ও ঝামেলা দুটোই বাঁচে।",rfH:"আসল ডিল নাকি নকল ছাড়?",rfS:"পেমেন্টের আগে দ্রুত দেখে নিন।",gdH:"ভালো লক্ষণ",bdH:"সতর্ক সংকেত",safeH:"প্রতারণা থেকে সাবধান",safeS:"সহজ কিছু অভ্যাস আপনার টাকা ও অ্যাকাউন্ট নিরাপদ রাখে।",stH:"বাংলাদেশে কোথায় কিনবেন",stS:"কেনার আগে তুলনা করুন। স্টোরে ট্যাপ করে চলমান ডিল দেখুন।",shop:"ডিল দেখুন",cpH:"কুপন ও ভাউচার",cpS:"কোড কপি করে চেকআউটে ব্যবহার করুন। পেমেন্টের আগে শপের শর্ত দেখে নিন।",cpCopy:"কপি",cpCopied:"কোড কপি হয়েছে",cpShop:"কিনুন",cpExp:"মেয়াদ",cpExpired:"মেয়াদ শেষ",rvH:"ক্রেতাদের রিভিউ",rvS:"কোন শপ থেকে কিনেছেন ও অভিজ্ঞতা কেমন, জানান। যাচাইয়ের পর রিভিউ প্রকাশ হবে।",rvN:"আপনার নাম",rvT:"আপনার রিভিউ (সর্বোচ্চ ৫০০ অক্ষর)",rvR:"আপনার রেটিং",rvSend:"রিভিউ পাঠান",rvOk:"ধন্যবাদ! অনুমোদনের পর আপনার রিভিউ প্রকাশ হবে।",rvWait:"আবার পোস্ট করতে এক মিনিট অপেক্ষা করুন।",rvErr:"পাঠানো যায়নি। পরে আবার চেষ্টা করুন।",rvNo:"নাম, রেটিং ও রিভিউ দিন।",rvLink:"রিভিউতে লিংক দেওয়া যাবে না।",rvEmpty:"এখনও কোনো রিভিউ নেই। প্রথম রিভিউ আপনার হোক!",rvCnt:"টি রিভিউ",rvDemo:"প্রিভিউ মোড: নমুনা রিভিউ। Firebase যুক্ত করলে আসল রিভিউ দেখাবে।",joinH:"কমিউনিটিতে যোগ দিন",joinS:"যেকোনো একটি চ্যানেলে যোগ দিন, নতুন ডিল সবার আগে পান। ফ্ল্যাশ সেল কয়েক ঘণ্টায় শেষ হয়।",visit:"সাইটে যান",follow:"ফলো করুন",watch:"দেখুন",wH:"এই গাইড সম্পর্কে",w1:"শপিং গাইড বিডি একটি স্বাধীন গাইড। আমরা কিছু বিক্রি করি না।",w2:"নতুন সেল বা ক্যাম্পেইন শুরু হলে আমরা এই পাতা আপডেট করি।",w3:"দাম, স্টক ও অফার দ্রুত বদলায়। পেমেন্টের আগে শপের অ্যাপে চূড়ান্ত দাম ও শর্ত দেখে নিন।",agH:"রোজ নতুন ডিল। রোজ একবার ঘুরে যান।",agS:"এই পাতা বুকমার্ক করুন এবং চ্যানেলে যোগ দিন, কোনো ফ্ল্যাশ সেল মিস করবেন না।",addHome:"হোম স্ক্রিনে যোগ করুন",homeHow:"ব্রাউজারের মেনু খুলে “Add to Home screen” চাপুন।",share:"বন্ধুদের সাথে শেয়ার করুন",copied:"লিংক কপি হয়েছে",recH:"সুপারিশকৃত স্টোর",disc:"আমরা একটি শপিং গাইড, দোকান নই। আমরা অনলাইন শপের লিংক দিই এবং এতে আপনার বাড়তি খরচ ছাড়াই সামান্য কমিশন পেতে পারি।",pvH:"প্রাইভেসি ও শর্ত",pv1:"সাইট কেমন ব্যবহার হচ্ছে বুঝতে আমরা Google Analytics ও Microsoft Clarity ব্যবহার করি। রিভিউতে দেওয়া নাম ও মন্তব্য সংরক্ষণ করা হয় এবং অনুমোদনের পর সবার কাছে দেখানো হয়। ফোন নম্বর বা ব্যক্তিগত তথ্য লিখবেন না।",pv2:"রিভিউ ক্রেতাদের নিজস্ব মত। আমরা যেকোনো রিভিউ সরিয়ে দিতে পারি। আমরা কখনও OTP, পাসওয়ার্ড বা অগ্রিম পেমেন্ট চাই না।",live:"এখন চলছে",fbT:"প্রতিদিনের ডিল টেলিগ্রামে",fbS:"নতুন অফার ও ভাউচার সবার আগে পেতে চ্যানেলে যোগ দিন।",fbB:"টেলিগ্রামে যোগ দিন",campBtn:"১১.১১ সেল দেখুন",sLive:"চলছে",sOpen:"ডিল দেখুন",dd:"দিন",hh:"ঘণ্টা",mm:"মিনিট",ss:"সেকেন্ড",lang:"EN",tagT:"প্রতিদিন নতুন ডিল!",all:"সব",gen:"শপিং গাইড বিডি (এই ওয়েবসাইট)",best:"সেরা রেটিং",rvW:"শুধু কেনাকাটার অভিজ্ঞতা লিখুন। ব্যক্তিগত তথ্য দেবেন না।"}
 };
 var $=function(s){return document.querySelector(s)};
 var lang="en",root=document.documentElement;
 function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function num(n){var s=String(n);return lang==="bn"?s.replace(/\d/g,function(d){return"০১২৩৪৫৬৭৮৯"[d]}):s}
-function toast(m){var t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(function(){t.classList.remove("on")},1800)}
+function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function toast(m){var t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(function(){t.classList.remove("on")},2800)}
 function live(){return CAMPAIGN&&new Date(CAMPAIGN.end)-new Date()>0}
 function campaign(){
   var L=T[lang],on=live(),cd=$("#cCd");
+  var tg=on?(lang==="bn"?["১১.১১","সেল"]:["11.11","SALE"]):(lang==="bn"?["রোজ","ডিল"]:["DAILY","DEALS"]);$("#tg1").textContent=tg[0];$("#tg2").textContent=tg[1];
   if(on){$("#sTx").textContent=(CAMPAIGN.short||CAMPAIGN.title)[lang]+" "+L.sLive;var sb=$("#sBtn");sb.textContent=L.sOpen;sb.href=CAMPAIGN.url}
   stick();
   $("#cLabel").textContent=on?L.live:"Telegram";
   $("#cTitle").textContent=on?CAMPAIGN.title[lang]:L.fbT;
   $("#cSub").textContent=on?CAMPAIGN.sub[lang]:L.fbS;
-  var b=$("#cBtn");b.textContent=on?L.campBtn:L.fbB;b.href=on?CAMPAIGN.url:TELEGRAM;
+  var b=$("#cBtn");b.textContent=on?L.campBtn:L.fbB;b.href=on?CAMPAIGN.url:TELEGRAM;b.dataset.aff=on?"campaign":"telegram";
   cd.hidden=!on;if(!on)return;
   var s=Math.floor((new Date(CAMPAIGN.end)-new Date())/1000),p=function(x){return num(String(x).padStart(2,"0"))};
   var u=[[Math.floor(s/86400),L.dd],[Math.floor(s%86400/3600),L.hh],[Math.floor(s%3600/60),L.mm],[s%60,L.ss]];
@@ -568,21 +465,20 @@ function logo(x){
 }
 function render(){
   document.querySelectorAll("[data-t]").forEach(function(el){var v=T[lang][el.dataset.t];if(v)el.textContent=v});
+  document.querySelectorAll("[data-p]").forEach(function(el){el.placeholder=T[lang][el.dataset.p]});
   root.lang=lang==="bn"?"bn":"en";$("#lang").textContent=T[lang].lang;
   $("#stores").innerHTML=STORES.map(function(x){
-    return'<a class="store" style="--c:'+x.c+'" href="'+x.url.replace(/&/g,"&amp;")+'" target="_blank" rel="noopener sponsored">'+logo(x)+'<span><h3>'+x.n+'</h3><p>'+x.t[lang]+'</p></span><em>'+T[lang].shop+'</em></a>'}).join("");
-  renderGuide();renderMini();campaign();renderSocial();renderCoupons();renderRec();setRot(true);
+    return'<a class="store" style="--c:'+x.c+'" data-aff="'+esc(x.n)+'" href="'+esc(x.url)+'" target="_blank" rel="noopener sponsored">'+logo(x)+'<span><h3>'+esc(x.n)+'</h3><p>'+x.t[lang]+'</p></span><span class="sl" data-s="'+esc(x.n)+'"></span><em>'+T[lang].shop+'</em></a>'}).join("");
+  renderGuide();renderMini();campaign();renderSocial();renderCoupons();renderRec();renderRv();setRot(true);
 }
-
 var DESK=matchMedia("(min-width:900px)");
 if(DESK.addEventListener)DESK.addEventListener("change",function(){renderGuide()});
-function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 function renderSocial(){
   $("#soc").innerHTML=SOCIAL.map(function(x){
-    return'<a class="soc" style="--c:'+x.c+'" href="'+esc(x.url)+'" target="_blank" rel="noopener"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+ICONS[x.i]+'"/></svg></span><span class="st"><b>Shopping Guide BD</b><small>'+x.n+'</small></span><em>'+T[lang][x.a]+'</em></a>'}).join("");
+    return'<a class="soc" style="--c:'+x.c+'" data-aff="social_'+x.n+'" href="'+esc(x.url)+'" target="_blank" rel="noopener"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+ICONS[x.i]+'"/></svg></span><span class="st"><b>Shopping Guide BD</b><small>'+x.n+'</small></span><em>'+(x.a==="join"?T[lang].join:T[lang][x.a])+'</em></a>'}).join("");
 }
 function renderRec(){
-  $("#rec").innerHTML=STORES.map(function(x){return'<a href="'+esc(x.url)+'" target="_blank" rel="sponsored nofollow noopener">'+x.n+'</a>'}).join(" · ");
+  $("#rec").innerHTML=STORES.map(function(x){return'<a data-aff="footer_'+esc(x.n)+'" href="'+esc(x.url)+'" target="_blank" rel="sponsored nofollow noopener">'+esc(x.n)+'</a>'}).join(" · ");
   $("#yr").textContent=new Date().getFullYear();
 }
 function renderCoupons(){
@@ -594,9 +490,11 @@ function renderCoupons(){
   $("#cpList").innerHTML=list.map(function(c){
     var ex=f(c),d="";
     if(c.exp){try{d=new Date(c.exp+"T12:00:00+06:00").toLocaleDateString(lang==="bn"?"bn-BD":"en-GB",{day:"numeric",month:"short",year:"numeric"})}catch(e){d=c.exp}}
-    return'<div class="cp'+(ex?' ex':'')+'"><h3>'+esc(c.store)+'</h3><div class="of">'+esc(c.offer[lang]||c.offer.en)+'</div><div class="cr"><code>'+esc(c.code)+'</code><button class="cc" data-code="'+esc(c.code)+'">'+L.cpCopy+'</button></div><div class="mt"><span>'+(c.exp?(ex?L.cpExpired:L.cpExp+": "+d):"")+'</span>'+(c.url&&!ex?'<a href="'+esc(c.url)+'" target="_blank" rel="sponsored nofollow noopener">'+L.cpShop+' →</a>':"")+'</div></div>'}).join("");
+    return'<div class="cp'+(ex?' ex':'')+'"><h3>'+esc(c.store)+'</h3><div>'+esc(c.offer[lang]||c.offer.en)+'</div><div class="cr"><code>'+esc(c.code)+'</code><button class="cc" data-code="'+esc(c.code)+'">'+L.cpCopy+'</button></div><div class="mt"><span>'+(c.exp?(ex?L.cpExpired:L.cpExp+": "+d):"")+'</span>'+(c.url&&!ex?'<a data-aff="coupon_'+esc(c.store)+'" href="'+esc(c.url)+'" target="_blank" rel="sponsored nofollow noopener">'+L.cpShop+' →</a>':"")+'</div></div>'}).join("");
 }
 document.addEventListener("click",function(e){
+  var a=e.target.closest&&e.target.closest("a[data-aff]");
+  if(a&&window.gtag)gtag("event","affiliate_click",{link_name:a.dataset.aff});
   var b=e.target.closest&&e.target.closest(".cc");if(!b)return;
   var c=b.dataset.code,ok=function(){toast(T[lang].cpCopied)};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(c).then(ok,function(){window.prompt("Code",c)})}else{window.prompt("Code",c)}
@@ -618,11 +516,54 @@ function renderGuide(){
   $("#bad").innerHTML=BAD.map(function(x){return'<li>'+x[lang]+'</li>'}).join("");
 }
 function renderMini(){
-  var now=Date.now(),L=T[lang];
-  $("#tip").textContent=TIPS[Math.floor(now/864e5)%TIPS.length][lang];
+  $("#tip").textContent=TIPS[Math.floor(Date.now()/864e5)%TIPS.length][lang];
   var e=$("#streak");e.hidden=false;
-  e.textContent=STREAK>1?(lang==="bn"?"🔥 টানা "+num(STREAK)+" দিন। কাল নতুন ডিল নিয়ে আবার দেখা হবে।":"🔥 "+STREAK+"-day streak. See you tomorrow for new deals."):(lang==="bn"?"👋 স্বাগতম! রোজ নতুন ডিল আসে, কাল আবার ঘুরে যান।":"👋 Welcome! New deals land every day. Come back tomorrow.");
+  var lv=LEVELS.filter(function(x){return STREAK>=x.d}).pop(),nx=LEVELS.filter(function(x){return x.d>STREAK})[0],bn=lang==="bn",left=nx?nx.d-STREAK:0;
+  e.innerHTML='<b>'+lv.i+' '+lv[lang]+'</b> · '+(bn?'টানা '+num(STREAK)+' দিন':STREAK+'-day streak')+'<small>'+lv.m[lang]+(nx?' '+(bn?num(left)+' দিন পর পাবেন '+nx.i+' '+nx.bn+'।':left+(left>1?' more days':' more day')+' to '+nx.i+' '+nx.en+'.'):'')+'</small>';
 }
+/* ----- Reviews (Firebase Firestore) ----- */
+var cfg=FIREBASE_CONFIG&&FIREBASE_CONFIG.projectId,db=null,RV=cfg?[]:DEMO.slice(),rate=0,FILT="";
+function stars(n){return"★★★★★".slice(0,n)+"☆☆☆☆☆".slice(0,5-n)}
+function fillSl(){
+  var L=T[lang],best="",bs=0,st={};
+  STORES.forEach(function(s){var a=RV.filter(function(r){return r.store===s.n}),t=0;a.forEach(function(r){t+=r.rating});if(a.length){st[s.n]={n:a.length,v:t/a.length};if(a.length>=3&&t/a.length>bs){bs=t/a.length;best=s.n}}});
+  document.querySelectorAll(".sl").forEach(function(el){var s=st[el.dataset.s];el.innerHTML=(s?'<small class="sr"><span class="stars">★</span> '+num(s.v.toFixed(1))+' · '+num(s.n)+' '+L.rvCnt+'</small>':'')+(el.dataset.s===best?'<span class="best">'+L.best+'</span>':'')});
+}
+function chipsR(){
+  var L=T[lang],c=[""].concat(STORES.map(function(s){return s.n})),sel=$("#stSel"),v=sel.value;
+  $("#chips").innerHTML=c.map(function(n){return'<button type="button" class="chip'+(FILT===n?' on':'')+'" data-f="'+esc(n)+'">'+(n?esc(n):L.all)+'</button>'}).join("");
+  sel.innerHTML='<option value="">'+L.gen+'</option>'+STORES.map(function(s){return'<option value="'+esc(s.n)+'">'+esc(s.n)+'</option>'}).join("");sel.value=v;
+}
+function renderRv(){
+  var L=T[lang],list=FILT?RV.filter(function(r){return r.store===FILT}):RV,n=list.length,sum=0;list.forEach(function(r){sum+=r.rating});fillSl();chipsR();
+  $("#rsum").innerHTML=n?'<b>'+num((sum/n).toFixed(1))+'</b><span><span class="stars">'+stars(Math.round(sum/n))+'</span><br><small class="note">'+num(n)+' '+L.rvCnt+'</small></span>':'';
+  $("#rvs").innerHTML=(n?list.map(function(r){var d="";try{d=new Date(r.t).toLocaleDateString(lang==="bn"?"bn-BD":"en-GB",{day:"numeric",month:"short",year:"numeric"})}catch(e){}
+    return'<div class="rv"><div class="h"><b>'+esc(r.name)+'</b><small>'+d+'</small></div>'+'<div class="vt">'+esc(r.store||"Shopping Guide BD")+'</div>'+'<div class="stars">'+stars(r.rating)+'</div><p>'+esc(r.text)+'</p></div>'}).join(""):'<p class="note">'+L.rvEmpty+'</p>')+(cfg?'':'<p class="note">'+L.rvDemo+'</p>');
+}
+function loadRv(){
+  db.collection("reviews").where("approved","==",true).limit(50).get().then(function(s){
+    RV=s.docs.map(function(d){var r=d.data();return{name:r.name,rating:Math.min(5,Math.max(1,Math.round(+r.rating||1))),text:r.text,store:String(r.store||"").slice(0,30),t:+r.t||0}}).sort(function(a,b){return b.t-a.t});renderRv()
+  }).catch(function(){renderRv()});
+}
+function sdk(u,cb){var s=document.createElement("script");s.src="https://www.gstatic.com/firebasejs/10.12.2/"+u;s.onload=cb;document.head.appendChild(s)}
+if(cfg)sdk("firebase-app-compat.js",function(){sdk("firebase-firestore-compat.js",function(){firebase.initializeApp(FIREBASE_CONFIG);db=firebase.firestore();loadRv()})});
+function paint(){document.querySelectorAll("#pick button").forEach(function(b){b.classList.toggle("on",+b.dataset.v<=rate)})}
+$("#chips").onclick=function(e){var b=e.target.closest("button");if(!b)return;FILT=b.dataset.f;if(FILT)$("#stSel").value=FILT;renderRv()};
+$("#pick").onclick=function(e){var b=e.target.closest("button");if(!b)return;rate=+b.dataset.v;paint()};
+$("#rf").onsubmit=function(e){
+  e.preventDefault();var L=T[lang],f=e.target;
+  if(f.hp.value)return;
+  var name=f.nm.value.trim().slice(0,40),text=f.tx.value.trim().slice(0,500);
+  if(!name||!text||!rate)return toast(L.rvNo);
+  if(/https?:|www\.|t\.me|\.com|\.net|\.xyz|bit\.ly/i.test(name+" "+text))return toast(L.rvLink);
+  if(Date.now()-(+load("sg-rv")||0)<60000)return toast(L.rvWait);
+  var r={name:name,text:text,rating:rate,store:f.st.value,approved:false,t:Date.now()},btn=f.querySelector(".go");
+  var done=function(){save("sg-rv",String(Date.now()));f.reset();rate=0;paint();btn.disabled=false;toast(L.rvOk)};
+  btn.disabled=true;
+  if(db){db.collection("reviews").add(r).then(done,function(){btn.disabled=false;toast(L.rvErr)})}
+  else{RV.unshift({name:name,text:text,rating:rate,store:r.store,t:r.t});renderRv();done()}
+};
+/* ----- Streak, install, theme, language, share ----- */
 function visit(){var d=new Date(Date.now()+216e5).toISOString().slice(0,10),n=1;
   try{var o=JSON.parse(load("sg-streak")||"null");if(o){if(o.d===d)n=o.n;else if(new Date(d)-new Date(o.d)===864e5)n=o.n+1}save("sg-streak",JSON.stringify({d:d,n:n}))}catch(x){}
   return n}
@@ -636,7 +577,7 @@ if(window.IntersectionObserver)new IntersectionObserver(function(e){campVis=e[0]
 $("#lang").onclick=function(){lang=lang==="en"?"bn":"en";save("sg-lang",lang);render()};
 function setTheme(t){root.dataset.theme=t;$("#theme").textContent=t==="dark"?"☀️":"🌙";$("#theme").setAttribute("aria-pressed",t==="dark");document.querySelector('meta[name=theme-color]').content=t==="dark"?"#0D1815":"#E8500A"}
 $("#theme").onclick=function(){var t=root.dataset.theme==="dark"?"light":"dark";setTheme(t);save("sg-theme",t)};
-$("#tag").onclick=function(){var t=$("#tag");t.classList.remove("go");void t.offsetWidth;t.classList.add("go");toast(T[lang].toastTag)};
+$("#tag").onclick=function(){var t=$("#tag");t.classList.remove("sw");void t.offsetWidth;t.classList.add("sw");toast(T[lang].tagT)};
 $("#share").onclick=function(){
   var d={title:"Shopping Guide BD",text:"Shop Smart. Save More.",url:location.href};
   if(navigator.share){navigator.share(d).catch(function(){})}
@@ -645,6 +586,8 @@ $("#share").onclick=function(){
 lang=load("sg-lang")||"en";
 setTheme(load("sg-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
 render();setInterval(campaign,1000);setInterval(nextRot,2800);
+var nb=LEVELS.filter(function(x){return x.d===STREAK&&STREAK>1})[0];
+if(nb&&load("sg-badge")!==String(STREAK)){save("sg-badge",String(STREAK));setTimeout(function(){toast("🎉 "+nb.i+" "+nb[lang])},1200)}
 if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}
 </script>
 </body>
